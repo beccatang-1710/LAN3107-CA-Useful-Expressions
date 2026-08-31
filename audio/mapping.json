@@ -1,0 +1,332 @@
+[
+    {
+        "index": 1,
+        "file": "expr01.mp3",
+        "raw": "Hi! Nice to meet you. I'm ______ from the ________ Department.",
+        "text": "Hi! Nice to meet you. I'm from the Department."
+    },
+    {
+        "index": 2,
+        "file": "expr02.mp3",
+        "raw": "Hello / Good morning / Good afternoon. It's a pleasure to meet you.",
+        "text": "Hello / Good morning / Good afternoon. It's a pleasure to meet you."
+    },
+    {
+        "index": 3,
+        "file": "expr03.mp3",
+        "raw": "Hi, I don't think we've met yet. I'm ______ from the ________ Department.",
+        "text": "Hi, I don't think we've met yet. I'm from the Department."
+    },
+    {
+        "index": 4,
+        "file": "expr04.mp3",
+        "raw": "Nice to meet you too. How are you doing today?",
+        "text": "Nice to meet you too. How are you doing today?"
+    },
+    {
+        "index": 5,
+        "file": "expr05.mp3",
+        "raw": "I went to Tokyo Disneyland during my annual leave.",
+        "text": "I went to Tokyo Disneyland during my annual leave."
+    },
+    {
+        "index": 6,
+        "file": "expr06.mp3",
+        "raw": "Disneyland? That sounds fun!",
+        "text": "Disneyland? That sounds fun!"
+    },
+    {
+        "index": 7,
+        "file": "expr07.mp3",
+        "raw": "They served Italian food and I had the best lasagna I've ever tasted.",
+        "text": "They served Italian food and I had the best lasagna I've ever tasted."
+    },
+    {
+        "index": 8,
+        "file": "expr08.mp3",
+        "raw": "Wow, I also love a good lasagna.",
+        "text": "Wow, I also love a good lasagna."
+    },
+    {
+        "index": 9,
+        "file": "expr09.mp3",
+        "raw": "Did you? Disney sounds exciting.",
+        "text": "Did you? Disney sounds exciting."
+    },
+    {
+        "index": 10,
+        "file": "expr10.mp3",
+        "raw": "How do you like the rollercoasters and shows?",
+        "text": "How do you like the rollercoasters and shows?"
+    },
+    {
+        "index": 11,
+        "file": "expr11.mp3",
+        "raw": "Did you try their restaurants?",
+        "text": "Did you try their restaurants?"
+    },
+    {
+        "index": 12,
+        "file": "expr12.mp3",
+        "raw": "I'm heading to beautiful Bali next month and I genuinely can't wait to unwind. I've booked a quiet villa with a private pool and plan to do absolutely nothing but read, sunbathe, and maybe take a refreshing surfing lesson.",
+        "text": "I'm heading to beautiful Bali next month and I genuinely can't wait to unwind. I've booked a quiet villa with a private pool and plan to do absolutely nothing but read, sunbathe, and maybe take a refreshing surfing lesson."
+    },
+    {
+        "index": 13,
+        "file": "expr13.mp3",
+        "raw": "I'm so excited for my highly anticipated holiday in vibrant Taiwan. I plan to eat lots of delicious street food at the bustling night markets and see the amazing, breathtaking views from the iconic Taipei 101. It will be my fantastic first time visiting, and I can't wait to explore.",
+        "text": "I'm so excited for my highly anticipated holiday in vibrant Taiwan. I plan to eat lots of delicious street food at the bustling night markets and see the amazing, breathtaking views from the iconic Taipei 101. It will be my fantastic first time visiting, and I can't wait to explore."
+    },
+    {
+        "index": 14,
+        "file": "expr14.mp3",
+        "raw": "I plan to go to Japan. I'm excited to explore the bustling streets of Tokyo, where I can visit iconic landmarks like the Tokyo Tower and the Meiji Shrine. I also want to visit Kyoto's peaceful temples and beautiful gardens. I can't wait to try delicious sushi and ramen, and see the amazing views of Mount Fuji.",
+        "text": "I plan to go to Japan. I'm excited to explore the bustling streets of Tokyo, where I can visit iconic landmarks like the Tokyo Tower and the Meiji Shrine. I also want to visit Kyoto's peaceful temples and beautiful gardens. I can't wait to try delicious sushi and ramen, and see the amazing views of Mount Fuji."
+    },
+    {
+        "index": 15,
+        "file": "expr15.mp3",
+        "raw": "I'm going to Australia with my family. I want to see the famous Sydney Opera House and visit the amazing Great Barrier Reef. I also hope to see koalas, kangaroos and other wildlife. I'm really excited for this big adventure.",
+        "text": "I'm going to Australia with my family. I want to see the famous Sydney Opera House and visit the amazing Great Barrier Reef. I also hope to see koalas, kangaroos and other wildlife. I'm really excited for this big adventure."
+    },
+    {
+        "index": 16,
+        "file": "expr16.mp3",
+        "raw": "My plan for the holiday is simple. I will stay home, sleep a lot, order my favorite foods, and watch good movies. I just want a peaceful and restful break.",
+        "text": "My plan for the holiday is simple. I will stay home, sleep a lot, order my favorite foods, and watch good movies. I just want a peaceful and restful break."
+    },
+    {
+        "index": 17,
+        "file": "expr17.mp3",
+        "raw": "We have completed the product trial.",
+        "text": "We have completed the product trial."
+    },
+    {
+        "index": 18,
+        "file": "expr18.mp3",
+        "raw": "Our marketing team is organising a promotional campaign for the health and wellness products.",
+        "text": "Our marketing team is organising a promotional campaign for the health and wellness products."
+    },
+    {
+        "index": 19,
+        "file": "expr19.mp3",
+        "raw": "We'll launch the new line by the end of next month.",
+        "text": "We'll launch the new line by the end of next month."
+    },
+    {
+        "index": 20,
+        "file": "expr20.mp3",
+        "raw": "We are currently creating a marketing plan to engage our target audience and promote our new eco-friendly home decor line. So far, we have designed an eco-friendly home decor line made from sustainable materials. Next, we will introduce our new eco-friendly home decor line with a launch event to showcase the features of the new product line.",
+        "text": "We are currently creating a marketing plan to engage our target audience and promote our new eco-friendly home decor line. So far, we have designed an eco-friendly home decor line made from sustainable materials. Next, we will introduce our new eco-friendly home decor line with a launch event to showcase the features of the new product line."
+    },
+    {
+        "index": 21,
+        "file": "expr21.mp3",
+        "raw": "Currently, the marketing team is launching social media contests.",
+        "text": "Currently, the marketing team is launching social media contests."
+    },
+    {
+        "index": 22,
+        "file": "expr22.mp3",
+        "raw": "I am happy to tell you that we are currently liaising a new advert plan with a renowned YouTuber.",
+        "text": "I am happy to tell you that we are currently liaising a new advert plan with a renowned YouTuber."
+    },
+    {
+        "index": 23,
+        "file": "expr23.mp3",
+        "raw": "So far, we have designed an eco-friendly home decor line made from sustainable materials.",
+        "text": "So far, we have designed an eco-friendly home decor line made from sustainable materials."
+    },
+    {
+        "index": 24,
+        "file": "expr24.mp3",
+        "raw": "Our team has already kicked off a trial of the new system.",
+        "text": "Our team has already kicked off a trial of the new system."
+    },
+    {
+        "index": 25,
+        "file": "expr25.mp3",
+        "raw": "Next, we will introduce our new eco-friendly home decor line.",
+        "text": "Next, we will introduce our new eco-friendly home decor line."
+    },
+    {
+        "index": 26,
+        "file": "expr26.mp3",
+        "raw": "If everything goes well as planned, we anticipate a rise in sales in all our outlets.",
+        "text": "If everything goes well as planned, we anticipate a rise in sales in all our outlets."
+    },
+    {
+        "index": 27,
+        "file": "expr27.mp3",
+        "raw": "…… to … / To ……, ……",
+        "text": "to / To ,"
+    },
+    {
+        "index": 28,
+        "file": "expr28.mp3",
+        "raw": "Next, we will introduce our new mobile application with a launch event to showcase the features and membership plans.",
+        "text": "Next, we will introduce our new mobile application with a launch event to showcase the features and membership plans."
+    },
+    {
+        "index": 29,
+        "file": "expr29.mp3",
+        "raw": "To encourage purchases, we will offer exclusive discounts and promotions to email subscribers and social media followers to retain existing customers and attract new ones.",
+        "text": "To encourage purchases, we will offer exclusive discounts and promotions to email subscribers and social media followers to retain existing customers and attract new ones."
+    },
+    {
+        "index": 30,
+        "file": "expr30.mp3",
+        "raw": "To achieve this, we have partnered with experienced designers and manufacturers to create a collection that embodies our brand's values and aesthetic.",
+        "text": "To achieve this, we have partnered with experienced designers and manufacturers to create a collection that embodies our brand's values and aesthetic."
+    },
+    {
+        "index": 31,
+        "file": "expr31.mp3",
+        "raw": "…… including ……",
+        "text": "including"
+    },
+    {
+        "index": 32,
+        "file": "expr32.mp3",
+        "raw": "We'll provide the influencers with detailed product information, including the features and benefits, to let them create content for posting on their own social media accounts.",
+        "text": "We'll provide the influencers with detailed product information, including the features and benefits, to let them create content for posting on their own social media accounts."
+    },
+    {
+        "index": 33,
+        "file": "expr33.mp3",
+        "raw": "…… so that ……",
+        "text": "so that"
+    },
+    {
+        "index": 34,
+        "file": "expr34.mp3",
+        "raw": "We will conduct tests to ensure that the pages of the new product line function smoothly so that our customers can have a seamless shopping experience.",
+        "text": "We will conduct tests to ensure that the pages of the new product line function smoothly so that our customers can have a seamless shopping experience."
+    },
+    {
+        "index": 35,
+        "file": "expr35.mp3",
+        "raw": "Have you heard about…?",
+        "text": "Have you heard about?"
+    },
+    {
+        "index": 36,
+        "file": "expr36.mp3",
+        "raw": "What do you think about…?",
+        "text": "What do you think about?"
+    },
+    {
+        "index": 37,
+        "file": "expr37.mp3",
+        "raw": "Did you hear about…?",
+        "text": "Did you hear about?"
+    },
+    {
+        "index": 38,
+        "file": "expr38.mp3",
+        "raw": "I think / feel / believe / reckon / love…",
+        "text": "I think / feel / believe / reckon / love"
+    },
+    {
+        "index": 39,
+        "file": "expr39.mp3",
+        "raw": "In my view / opinion, …",
+        "text": "In my view / opinion,"
+    },
+    {
+        "index": 40,
+        "file": "expr40.mp3",
+        "raw": "On the one hand, … On the other hand, …",
+        "text": "On the one hand, On the other hand,"
+    },
+    {
+        "index": 41,
+        "file": "expr41.mp3",
+        "raw": "…because / since / as…",
+        "text": "because / since / as"
+    },
+    {
+        "index": 42,
+        "file": "expr42.mp3",
+        "raw": "…so… / As a result, … / Therefore / Consequently, …",
+        "text": "so / As a result, / Therefore / Consequently,"
+    },
+    {
+        "index": 43,
+        "file": "expr43.mp3",
+        "raw": "My position is that…",
+        "text": "My position is that"
+    },
+    {
+        "index": 44,
+        "file": "expr44.mp3",
+        "raw": "Personally speaking, …",
+        "text": "Personally speaking,"
+    },
+    {
+        "index": 45,
+        "file": "expr45.mp3",
+        "raw": "My personal feeling is that…",
+        "text": "My personal feeling is that"
+    },
+    {
+        "index": 46,
+        "file": "expr46.mp3",
+        "raw": "My own experience is that…",
+        "text": "My own experience is that"
+    },
+    {
+        "index": 47,
+        "file": "expr47.mp3",
+        "raw": "For example / instance, …",
+        "text": "For example / instance,"
+    },
+    {
+        "index": 48,
+        "file": "expr48.mp3",
+        "raw": "Fantastic! I love this policy as I will be able to spend time with my dog at work. I feel that having pets in the office can definitely improve/enhance the atmosphere. It will be fun to see different pets, too. For example, some staff members may bring their cats or dogs, while others may bring more exotic pets, such as tortoises or parrots. I really believe that this pet-friendly policy is meaningful since having pets around can reduce the stress of many staff members and improve/enhance their work output.",
+        "text": "Fantastic! I love this policy as I will be able to spend time with my dog at work. I feel that having pets in the office can definitely improve/enhance the atmosphere. It will be fun to see different pets, too. For example, some staff members may bring their cats or dogs, while others may bring more exotic pets, such as tortoises or parrots. I really believe that this pet-friendly policy is meaningful since having pets around can reduce the stress of many staff members and improve/enhance their work output."
+    },
+    {
+        "index": 49,
+        "file": "expr49.mp3",
+        "raw": "While I understand your view, I tend to think that it is quite inappropriate to have animals in the office because they can be very disturbing. It will be hard to concentrate with animals around. This may decrease productivity. In addition, I feel that no consideration has been given to health and safety issues. There are people who don't like animals or are allergic. This policy is unfair to them. In my opinion, we should focus on work in the office and keep our pets at home.",
+        "text": "While I understand your view, I tend to think that it is quite inappropriate to have animals in the office because they can be very disturbing. It will be hard to concentrate with animals around. This may decrease productivity. In addition, I feel that no consideration has been given to health and safety issues. There are people who don't like animals or are allergic. This policy is unfair to them. In my opinion, we should focus on work in the office and keep our pets at home."
+    },
+    {
+        "index": 50,
+        "file": "expr50.mp3",
+        "raw": "I have mixed feelings about Pet Day. On the one hand, having pets at work could be beneficial to some staff members and boost morale. On the other hand, the pets could be disruptive and noisy. It is a bit impractical to implement this policy every month. Perhaps we could consider a compromise, like running Pet Day twice a year. This may be more effective.",
+        "text": "I have mixed feelings about Pet Day. On the one hand, having pets at work could be beneficial to some staff members and boost morale. On the other hand, the pets could be disruptive and noisy. It is a bit impractical to implement this policy every month. Perhaps we could consider a compromise, like running Pet Day twice a year. This may be more effective."
+    },
+    {
+        "index": 51,
+        "file": "expr51.mp3",
+        "raw": "I'd love to chat longer, but I really must run. See you soon.",
+        "text": "I'd love to chat longer, but I really must run. See you soon."
+    },
+    {
+        "index": 52,
+        "file": "expr52.mp3",
+        "raw": "Sorry, I've got to go now, but I hope to see you around.",
+        "text": "Sorry, I've got to go now, but I hope to see you around."
+    },
+    {
+        "index": 53,
+        "file": "expr53.mp3",
+        "raw": "Sorry, I have to attend a meeting now. Let's meet for lunch next week though.",
+        "text": "Sorry, I have to attend a meeting now. Let's meet for lunch next week though."
+    },
+    {
+        "index": 54,
+        "file": "expr54.mp3",
+        "raw": "It's been lovely to meet you. Hopefully, I'll see you around.",
+        "text": "It's been lovely to meet you. Hopefully, I'll see you around."
+    },
+    {
+        "index": 55,
+        "file": "expr55.mp3",
+        "raw": "It's nice to meet you too. Have a great day!",
+        "text": "It's nice to meet you too. Have a great day!"
+    }
+]
