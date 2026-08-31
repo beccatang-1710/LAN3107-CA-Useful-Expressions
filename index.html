@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAN3107 Useful Expressions for CA Assignment</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fdf7e0;
+  color: #333;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='190'%3E%3Cpath d='M80 20 L74 32 L68 32 L66 75 L70 87 L77 92 L77 102 L83 102 L83 92 L90 87 L94 75 L92 32 L86 32 Z' fill='none' stroke='%23C4956A' stroke-width='1.3' opacity='0.5'/%3E%3Cpath d='M77 102 L83 102 L83 108 L77 108 Z' fill='%23C4956A' opacity='0.3'/%3E%3Cline x1='80' y1='108' x2='80' y2='118' stroke='%23C4956A' stroke-width='1.8' opacity='0.4'/%3E%3Cline x1='70' y1='118' x2='90' y2='118' stroke='%23C4956A' stroke-width='1.8' opacity='0.4'/%3E%3Ccircle cx='80' cy='25' r='2.5' fill='%23C4956A' opacity='0.3'/%3E%3C/svg%3E") repeat;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 10% 85%, rgba(247,231,206,0.4) 3px, transparent 4px),
+    radial-gradient(circle at 25% 70%, rgba(247,231,206,0.3) 5px, transparent 6px),
+    radial-gradient(circle at 45% 90%, rgba(247,231,206,0.35) 4px, transparent 5px),
+    radial-gradient(circle at 65% 60%, rgba(247,231,206,0.25) 7px, transparent 8px),
+    radial-gradient(circle at 80% 80%, rgba(247,231,206,0.35) 3px, transparent 4px),
+    radial-gradient(circle at 90% 50%, rgba(247,231,206,0.3) 6px, transparent 7px),
+    radial-gradient(circle at 15% 40%, rgba(247,231,206,0.25) 4px, transparent 5px),
+    radial-gradient(circle at 50% 30%, rgba(247,231,206,0.2) 8px, transparent 9px),
+    radial-gradient(circle at 35% 15%, rgba(247,231,206,0.25) 5px, transparent 6px),
+    radial-gradient(circle at 60% 5%, rgba(247,231,206,0.2) 4px, transparent 5px),
+    radial-gradient(circle at 5% 55%, rgba(247,231,206,0.25) 6px, transparent 7px),
+    radial-gradient(circle at 95% 35%, rgba(247,231,206,0.3) 4px, transparent 7px),
+    radial-gradient(circle at 40% 55%, rgba(247,231,206,0.15) 10px, transparent 11px),
+    radial-gradient(circle at 70% 75%, rgba(247,231,206,0.2) 5px, transparent 6px),
+    radial-gradient(circle at 20% 25%, rgba(247,231,206,0.15) 7px, transparent 8px);
+  animation: bubbles 18s ease-in-out infinite alternate;
+}
+
+@keyframes bubbles {
+  0% { transform: translateY(0); opacity: 0.5; }
+  100% { transform: translateY(-35px); opacity: 1; }
+}
+
+.banner {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: kenburns 10s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
+
+.page-header {
+  text-align: center;
+  padding: 20px 20px 0;
+  background: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  color: #4b0082;
+  margin-bottom: 4px;
+}
+
+.page-header p {
+  font-size: 16px;
+  color: #6a0dad;
+  margin-bottom: 4px;
+}
+
+.page-header .presented-by {
+  font-size: 14px;
+  color: #9370db;
+  font-style: italic;
+  margin-top: 6px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: #d8bfd8;
+  color: #555;
+  border-radius: 10px 10px 0 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn:hover {
+  background: #c9aec9;
+}
+
+.tab-btn.active {
+  background: white;
+  color: #6a0dad;
+}
+
+.tab-content {
+  display: none;
+  background: white;
+  padding: 30px;
+  border-radius: 0 10px 10px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  line-height: 1.7;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h1 {
+  font-size: 22px;
+  color: #4b0082;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 18px;
+  color: #6a0dad;
+  margin: 20px 0 10px;
+}
+
+h3 {
+  font-size: 16px;
+  color: #8a2be2;
+  margin: 16px 0 8px;
+}
+
+.part-badge {
+  display: inline-block;
+  background: #4b0082;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 100px;
+  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+}
+
+.task-section {
+  margin-bottom: 30px;
+}
+
+.task-section ul {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.task-section li {
+  margin-bottom: 6px;
+}
+
+.task-box {
+  background: #f8f0ff;
+  border-left: 4px solid #9370db;
+  padding: 16px 20px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.task-box p { margin-bottom: 4px; }
+
+.expr-text {
+  background: #faf5ff;
+  border: 1px solid #e6d8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 10px 0;
+}
+
+.expr-text .speaker {
+  font-weight: 700;
+  color: #4b0082;
+  margin-right: 6px;
+}
+
+.word {
+  cursor: pointer;
+  border-bottom: 1px dotted rgba(147,112,219,0.3);
+  transition: background 0.15s, border-color 0.15s;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.word:hover {
+  background: rgba(147,112,219,0.12);
+  border-bottom-color: rgba(147,112,219,0.7);
+}
+
+.word.speaking {
+  background: rgba(147,112,219,0.2);
+  border-bottom-color: #9370db;
+  border-bottom-style: solid;
+}
+
+table.words {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+table.words th {
+  background: #9370db;
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  width: 50%;
+}
+
+table.words td {
+  padding: 10px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #e6d8f0;
+}
+
+table.words tr:nth-child(even) td {
+  background: #faf5ff;
+}
+
+table.words td:first-child {
+  border-right: 1px solid #e6d8f0;
+}
+
+table.words td:last-child {
+  color: #555;
+}
+
+table.words.stacked th {
+  width: auto;
+}
+
+table.words.stacked tr:nth-child(odd) td {
+  background: #faf5ff;
+}
+
+table.words.stacked tr:nth-child(even) td {
+  background: white;
+}
+
+table.words.stacked td:first-child {
+  border-right: none;
+}
+
+table.words.stacked td {
+  color: #333;
+}
+
+table.words.tenses th {
+  width: auto;
+}
+
+table.words.tenses td {
+  color: #333;
+}
+
+table.words.tenses.flow td {
+  text-align: center;
+  border: 1px solid #e6d8f0;
+}
+
+table.words.tenses.flow td:first-child {
+  border-right: 1px solid #e6d8f0;
+}
+
+table.words.tenses.flow td.flow-arrow {
+  width: 40px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: #9370db;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+}
+
+table.words.tenses.flow td:last-child {
+  color: #333;
+}
+
+.flow-stage {
+  font-weight: 700;
+  color: #4b0082;
+  margin-bottom: 6px;
+}
+
+.flow-step {
+  font-size: 14px;
+  color: #333;
+}
+
+.char-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #faf5ff;
+  border: 1px solid #e6d8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+table.reminder-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+
+table.reminder-table td {
+  padding: 12px 14px;
+  border: 1px solid #e6d8f0;
+  background: #faf5ff;
+}
+
+.reminder-item {
+  display: block;
+}
+
+.reminder-title {
+  font-size: 15px;
+  color: #333;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.char-card img {
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.char-card .char-caption {
+  font-weight: 700;
+  color: #4b0082;
+  font-size: 15px;
+}
+
+.cn-translation {
+  display: none;
+  margin-top: 6px;
+  padding: 8px 12px;
+  background: #fff8f0;
+  border-left: 3px solid #e8a87c;
+  border-radius: 0 6px 6px 0;
+  font-size: 14px;
+  color: #8b5a2b;
+  line-height: 1.6;
+}
+
+
+
+.cn-word {
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 1px dotted rgba(147,112,219,0.4);
+  transition: background 0.15s;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+.cn-word:hover {
+  background: rgba(147,112,219,0.12);
+}
+
+.cn-word.speaking {
+  background: rgba(147,112,219,0.2);
+  border-bottom-style: solid;
+}
+
+.cn-inline {
+  display: none;
+  font-size: 13px;
+  color: #8b5a2b;
+  font-weight: 400;
+}
+
+.cn-active .cn-inline {
+  display: inline;
+}
+
+.cn-active .cn-translation {
+  display: block;
+}
+
+.cn-toggle-wrap {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.cn-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6a0dad;
+  user-select: none;
+}
+
+.cn-toggle input {
+  width: 40px;
+  height: 22px;
+  appearance: none;
+  background: #d8bfd8;
+  border-radius: 11px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.cn-toggle input::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s;
+}
+
+.cn-toggle input:checked {
+  background: #9370db;
+}
+
+.cn-toggle input:checked::before {
+  transform: translateX(18px);
+}
+
+.hint {
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+
+.btn-icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #9370db;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  vertical-align: middle;
+}
+
+.btn-icon:hover {
+  background: #7b5ec0;
+}
+
+.btn-icon.playing {
+  background: #e74c3c;
+}
+
+.btn-icon svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.utterance {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.utterance.block {
+  display: flex;
+  align-items: flex-start;
+}
+
+.controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 10px 16px;
+  background: #f8f0ff;
+  border-radius: 8px;
+  border: 1px solid #e6d8f0;
+  flex-wrap: wrap;
+}
+
+.controls-bar label {
+  font-weight: 600;
+  color: #6a0dad;
+  font-size: 14px;
+}
+
+.controls-bar input[type="range"] {
+  flex: 1;
+  max-width: 160px;
+  accent-color: #9370db;
+}
+
+.controls-bar .speed-val {
+  font-weight: 700;
+  color: #4b0082;
+  min-width: 40px;
+  font-size: 14px;
+}
+
+.ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #9370db;
+  color: white;
+  transition: background 0.15s;
+}
+
+.ctrl-btn:hover {
+  background: #7b5ec0;
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.ctrl-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.separator {
+  width: 1px;
+  height: 28px;
+  background: #d8bfd8;
+  margin: 0 4px;
+}
+
+
+.blank {
+  display: inline-block;
+  min-width: 80px;
+  border-bottom: 1px solid #9370db;
+  padding: 0 4px;
+  cursor: text;
+  outline: none;
+  color: #333;
+}
+
+.blank:empty::before {
+  content: attr(data-ph);
+  color: #bbb;
+}
+
+.script-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.script-table th {
+  background: #4b0082;
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.script-table td {
+  padding: 12px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #e6d8f0;
+}
+
+.script-table tr:nth-child(even) td {
+  background: #faf5ff;
+}
+
+.script-table td:first-child {
+  border-right: 1px solid #e6d8f0;
+}
+
+.script-line {
+  line-height: 1.8;
+}
+
+.script-speaker {
+  font-weight: 700;
+  color: #4b0082;
+  margin-right: 6px;
+}
+
+.fill {
+  display: inline-block;
+  min-width: 60px;
+  border-bottom: 1px dashed #b389e0;
+  background: rgba(147,112,219,0.08);
+  color: #8a5a9e;
+  padding: 0 4px;
+  border-radius: 3px;
+  outline: none;
+  cursor: text;
+  vertical-align: baseline;
+  transition: background 0.15s;
+}
+
+.fill:hover {
+  background: rgba(147,112,219,0.18);
+}
+
+.fill:focus {
+  background: #fff8f0;
+  border-bottom-style: solid;
+  color: #4b0082;
+}
+
+.export-bar {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 4px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .tab-btn { padding: 10px 12px; font-size: 13px; }
+  .char-card { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <img src="banner.png" alt="CA Characters">
+</div>
+
+<div class="page-header">
+  <h1>Essential Workplace Communication: Effective Oral Interaction (LAN3107)</h1>
+  <p>Useful Expressions for the CA Assignment</p>
+  <p class="presented-by">Presented by Rebecca Tang</p>
+  <div class="cn-toggle-wrap">
+    <label class="cn-toggle">
+      <input type="checkbox" onchange="toggleAllCN(this.checked)">
+      <span>中文翻译</span>
+    </label>
+  </div>
+</div>
+
+<div class="container">
+  <div class="controls-bar">
+      <label>Speed:</label>
+      <input type="range" id="speedSlider" min="0.25" max="2.0" step="0.25" value="1.0">
+      <span class="speed-val" id="speedDisplay">1.0x</span>
+      <div class="separator"></div>
+      <button class="ctrl-btn" id="playAllBtn" onclick="playAll()"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg> Play All</button>
+      <button class="ctrl-btn" id="pauseAllBtn" onclick="pauseAll()" disabled><svg viewBox="0 0 24 24"><rect x="5" y="4" width="5" height="16"/><rect x="14" y="4" width="5" height="16"/></svg> Pause</button>
+      <button class="ctrl-btn" id="stopAllBtn" onclick="stopAll()" disabled><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg> Stop</button>
+    </div>
+
+<div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">Part 1 — Greet &amp; Introduce</button>
+    <button class="tab-btn" onclick="switchTab(1)">Part 2a — Small Talk: Holiday</button>
+    <button class="tab-btn" onclick="switchTab(2)">Part 2b — Small Talk: Work</button>
+    <button class="tab-btn" onclick="switchTab(3)">Part 3 — Opinions on Policy</button>
+    <button class="tab-btn" onclick="switchTab(4)">Part 4 — End the Conversation</button>
+    <button class="tab-btn" onclick="switchTab(5)">Part 5 — CA Script Template</button>
+    <button class="tab-btn" onclick="switchTab(6)">Part 6 — CA Reminder</button>
+    <button class="tab-btn" onclick="switchTab(7)">Part 7 — Assignment Task</button>
+  </div>
+
+  <!-- ================= Part 1: Greet & Introduce ================= -->
+  <div class="tab-content active" id="tab-0">
+    <span class="part-badge">Part 1</span>
+    <h1 data-cn="打招呼並自我介紹">Greet your colleague and introduce yourself</h1>
+
+    <div class="char-card">
+      <div>
+        <div class="char-caption" data-cn="向你的夥伴打招呼並自我介紹">Greet your partner and introduce yourself</div>
+        <p style="color:#555;" data-cn="用友好的問候打招呼，說出你的名字和所屬部門。">Use a friendly greeting, state your name and the department you are from.</p>
+      </div>
+    </div>
+
+    <div class="task-box">
+      <p><strong data-cn="基本句型：">Basic pattern:</strong></p>
+      <p class="expr-text"><span class="speaker">You:</span> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr01.mp3', this)" data-src="audio/expr01.mp3"></button><span class="spoken" data-cn="嗨！很高興認識你。我是來自＿＿部的＿＿。">Hi! Nice to meet you. I'm ______ from the ________ Department.</span></span></p>
+      <p class="hint" data-cn="點擊句子中的任何單詞即可聆聽發音。">Tip: click any word in the sentences to hear its pronunciation.</p>
+    </div>
+
+    <h2 data-cn="更多常用問候語">More useful greetings</h2>
+    <div class="task-section">
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr02.mp3', this)" data-src="audio/expr02.mp3"></button><span class="spoken" data-cn="你好／早安／午安。很高興見到你。">Hello / Good morning / Good afternoon. It's a pleasure to meet you.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr03.mp3', this)" data-src="audio/expr03.mp3"></button><span class="spoken" data-cn="嗨，我想我們還沒見過面。我是來自＿＿部的＿＿。">Hi, I don't think we've met yet. I'm ______ from the ________ Department.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr04.mp3', this)" data-src="audio/expr04.mp3"></button><span class="spoken" data-cn="我也很高興認識你。你今天過得怎麼樣？">Nice to meet you too. How are you doing today?</span></span></div>
+    </div>
+  </div>
+
+  <!-- ================= Part 2a: Small Talk — Holiday ================= -->
+  <div class="tab-content" id="tab-1">
+    <span class="part-badge">Part 2a</span>
+    <h1 data-cn="閒聊：假期計劃">Making small talk — Holiday plans (Unit 2)</h1>
+
+    <h2 data-cn="回應的技巧">Responding techniques</h2>
+    <div class="task-section">
+      <h3 data-cn="1. 迴聲回應（重複關鍵詞）">1. Echo words <span style="font-weight:400; color:#888;">(4ai–iii)</span></h3>
+      <div class="expr-text">
+        <span class="speaker">A:</span> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr05.mp3', this)" data-src="audio/expr05.mp3"></button><span class="spoken" data-cn="我在年假期間去了東京迪士尼樂園。">I went to Tokyo Disneyland during my annual leave.</span></span><br>
+        <span class="speaker">B:</span> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr06.mp3', this)" data-src="audio/expr06.mp3"></button><span class="spoken" data-cn="迪士尼？聽起來很有趣！"><span style="color:#1a7f37;">Disneyland? That sounds fun!</span></span></span>
+      </div>
+
+      <h3 data-cn="2. 正面評論／讚美">2. Positive comments / compliments <span style="font-weight:400; color:#888;">(4bi–iii)</span></h3>
+      <div class="expr-text">
+        <span class="speaker">Chris:</span> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr07.mp3', this)" data-src="audio/expr07.mp3"></button><span class="spoken" data-cn="他們供應意大利菜，我吃到了我吃過的最好吃的千層麵。">They served Italian food and I had the best lasagna I've ever tasted.</span></span><br>
+        <span class="speaker">Jack:</span> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr08.mp3', this)" data-src="audio/expr08.mp3"></button><span class="spoken" data-cn="哇，我也很喜歡好吃的千層麵。"><u>Wow, I also love a good lasagna.</u></span></span>
+      </div>
+
+      <h3 data-cn="3. 提出追問問題及帶出新話題">3. Ask follow-up questions &amp; bring up new topics</h3>
+      <ul style="padding-left:20px;">
+        <li><strong data-cn="迴聲疑問句">Echo question</strong> <span style="color:#888;">(4c ii–v)</span>: <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr09.mp3', this)" data-src="audio/expr09.mp3"></button><span class="spoken" data-cn="真的嗎？迪士尼聽起來很令人興奮。"><span style="color:#1a7f37;">Did you? Disney sounds exciting.</span></span></span></li>
+        <li><strong data-cn="特殊疑問句">Wh- question</strong> <span style="color:#888;">(4c vi–xii)</span>: <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr10.mp3', this)" data-src="audio/expr10.mp3"></button><span class="spoken" data-cn="你覺得過山車和表演怎麼樣？"><span style="color:#1a7f37;">How do you like the rollercoasters and shows?</span></span></span></li>
+        <li><strong data-cn="一般疑問句">Yes/No question</strong> <span style="color:#888;">(4c xiii–xv)</span>: <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr11.mp3', this)" data-src="audio/expr11.mp3"></button><span class="spoken" data-cn="你有試過他們的餐廳嗎？"><span style="color:#1a7f37;">Did you try their restaurants?</span></span></span></li>
+      </ul>
+    </div>
+
+    <h2 data-cn="談論即將到來的假期計劃 — 例子">Examples of talking about your upcoming holiday plan</h2>
+    <div class="task-section">
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr12.mp3', this)" data-src="audio/expr12.mp3"></button><span class="spoken" data-cn="我下個月要去美麗的峇里島，我真的迫不及待要放鬆一下。我訂了一間帶私人泳池的安靜別墅，計劃什麼都不做，只閱讀、曬太陽，也許上一堂令人精神煥發的衝浪課。">I'm heading to <mark>beautiful</mark> Bali next month and I genuinely can't wait to unwind. I've booked a <mark>quiet</mark> villa with a <mark>private</mark> pool and plan to do absolutely nothing but read, sunbathe, and maybe take a <mark>refreshing</mark> surfing lesson.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr13.mp3', this)" data-src="audio/expr13.mp3"></button><span class="spoken" data-cn="我對這個備受期待的台灣之旅感到非常興奮。我計劃在熱鬧的夜市吃很多美味的街頭小吃，並欣賞地標台北101令人驚嘆的景色。這將是我第一次到訪，我迫不及待想探索。">I'm so excited for my <mark>highly anticipated</mark> holiday in <mark>vibrant</mark> Taiwan. I plan to eat lots of <mark>delicious</mark> street food at the <mark>bustling</mark> night markets and see the <mark>amazing</mark>, <mark>breathtaking</mark> views from the <mark>iconic</mark> Taipei 101. It will be my <mark>fantastic</mark> first time visiting, and I can't wait to explore.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr14.mp3', this)" data-src="audio/expr14.mp3"></button><span class="spoken" data-cn="我計劃去日本。我很期待探索東京繁華的街道，可以參觀東京鐵塔和明治神宮等地標。我也想參觀京都寧靜的寺廟和美麗的花園。我迫不及待想品嚐美味的壽司和拉麵，並欣賞富士山的壯麗景色。">I plan to go to Japan. I'm excited to explore the <mark>bustling</mark> streets of Tokyo, where I can visit <mark>iconic</mark> landmarks like the Tokyo Tower and the Meiji Shrine. I also want to visit Kyoto's <mark>peaceful</mark> temples and <mark>beautiful</mark> gardens. I can't wait to try <mark>delicious</mark> sushi and ramen, and see the <mark>amazing</mark> views of Mount Fuji.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr15.mp3', this)" data-src="audio/expr15.mp3"></button><span class="spoken" data-cn="我會和家人去澳洲。我想看著名的悉尼歌劇院，並參觀壯觀的大堡礁。我也希望能看到樹熊、袋鼠和其他野生動物。我對這次大冒險感到非常興奮。">I'm going to Australia with my family. I want to see the <mark>famous</mark> Sydney Opera House and visit the <mark>amazing</mark> Great Barrier Reef. I also hope to see koalas, kangaroos and other wildlife. I'm really excited for this <mark>big</mark> adventure.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr16.mp3', this)" data-src="audio/expr16.mp3"></button><span class="spoken" data-cn="我的假期計劃很簡單。我會留在家裡，睡很多覺，點我最喜歡的食物，並看一些好電影。我只想要一個平靜和休息的假期。">My plan for the holiday is <mark>simple</mark>. I will stay home, sleep a lot, order my <mark>favorite</mark> foods, and watch <mark>good</mark> movies. I just want a <mark>peaceful</mark> and <mark>restful</mark> break.</span></span></div>
+    </div>
+  </div>
+
+  <!-- ================= Part 2b: Small Talk — Work ================= -->
+  <div class="tab-content" id="tab-2">
+    <span class="part-badge">Part 2b</span>
+    <h1 data-cn="閒聊：工作項目">Making small talk — Work projects (Unit 4)</h1>
+
+    <h2 data-cn="三個階段的時態">Three stages — use the correct tenses</h2>
+    <table class="words tenses">
+      <tr>
+        <th data-cn="時態">Tense</th>
+        <th data-cn="功能">Function</th>
+        <th data-cn="形式">Form</th>
+      </tr>
+      <tr>
+        <td><strong data-cn="現在完成式">Present perfect</strong></td>
+        <td data-cn="描述最近已完成的事情">To describe what has been completed recently</td>
+        <td>Have/has + past participle verb — <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr17.mp3', this)" data-src="audio/expr17.mp3"></button><span class="spoken" data-cn="我們已完成了產品試用。">e.g., 'We <u>have completed</u> the product trial.'</span></span></td>
+      </tr>
+      <tr>
+        <td><strong data-cn="現在進行式">Present continuous</strong></td>
+        <td data-cn="描述正在發生的事情">To describe what is happening now</td>
+        <td>Am/is/are + present participle verb — <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr18.mp3', this)" data-src="audio/expr18.mp3"></button><span class="spoken" data-cn="我們的市場營銷團隊正在為健康與保健產品籌劃宣傳活動。">e.g., 'Our marketing team <u>is organising</u> a promotional campaign for the health and wellness products.'</span></span></td>
+      </tr>
+      <tr>
+        <td><strong data-cn="未來式">Future tense</strong></td>
+        <td data-cn="描述將來會發生的事情">To describe what will happen</td>
+        <td>Will + base form of verb — <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr19.mp3', this)" data-src="audio/expr19.mp3"></button><span class="spoken" data-cn="我們將在下月底推出新系列。">e.g., 'We<u>'ll launch</u> the new line by the end of next month.'</span></span></td>
+      </tr>
+    </table>
+
+    <div class="task-box">
+      <p><strong data-cn="完整例子：">Example (Task 3aii–ix):</strong></p>
+
+      <table class="words tenses flow">
+        <tr>
+          <td><div class="flow-stage" data-cn="已完成的工作">Task completed</div><div class="flow-step">Design an eco-friendly home decor line made from sustainable materials</div></td>
+          <td class="flow-arrow">→</td>
+          <td><div class="flow-stage" data-cn="正在進行的工作">Task in progress</div><div class="flow-step">Create a marketing plan to promote Our New eco-friendly home decor line</div></td>
+          <td class="flow-arrow">→</td>
+          <td><div class="flow-stage" data-cn="未來要完成的工作">Work to complete</div><div class="flow-step">Introduce our new eco-friendly home decor line with a launch event to showcase the new line of products</div></td>
+        </tr>
+      </table>
+
+      <div class="expr-text" style="margin-top:12px;"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr20.mp3', this)" data-src="audio/expr20.mp3"></button><span class="spoken" data-cn="我們目前正在制定一個營銷計劃，以吸引我們的目標受眾並推廣我們新的環保家居裝飾系列。到目前為止，我們已經設計了一個用可持續材料製成的環保家居裝飾系列。接下來，我們將通過一個發布活動來介紹我們新的環保家居裝飾系列，展示新產品系列的特點。">We <u>are currently creating</u> a marketing plan to engage our target audience and promote our new eco-friendly home decor line. So far, we <u>have designed</u> an eco-friendly home decor line made from sustainable materials. Next, we <u>will introduce</u> our new eco-friendly home decor line with a launch event to showcase the features of the new product line.</span></span></div>
+    </div>
+
+    <h2 data-cn="實用詞彙">Useful words &amp; phrases</h2>
+    <div class="task-section">
+      <h3 data-cn="目前，……（現在進行式）">Currently, …… <span style="font-weight:400; color:#888;">(present continuous)</span></h3>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr21.mp3', this)" data-src="audio/expr21.mp3"></button><span class="spoken" data-cn="目前，市場營銷團隊正在舉辦社交媒體比賽。">Currently, the marketing team <u>is launching</u> social media contests.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr22.mp3', this)" data-src="audio/expr22.mp3"></button><span class="spoken" data-cn="我很高興告訴你，我們目前正在與一位知名的YouTuber洽談新的廣告計劃。">I am happy to tell you that we <u>are currently liaising</u> a new advert plan with a renowned YouTuber.</span></span></div>
+
+      <h3 data-cn="到目前為止，……（現在完成式）">So far, …… <span style="font-weight:400; color:#888;">(present perfect)</span></h3>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr23.mp3', this)" data-src="audio/expr23.mp3"></button><span class="spoken" data-cn="到目前為止，我們已經設計了一個用可持續材料製成的環保家居裝飾系列。">So far, we <u>have designed</u> an eco-friendly home decor line made from sustainable materials.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr24.mp3', this)" data-src="audio/expr24.mp3"></button><span class="spoken" data-cn="我們的團隊已經開始試行新系統。">Our team <u>has already kicked off</u> a trial of the new system.</span></span></div>
+
+      <h3 data-cn="接下來，……（未來式）">Next, ……. <span style="font-weight:400; color:#888;">(future)</span></h3>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr25.mp3', this)" data-src="audio/expr25.mp3"></button><span class="spoken" data-cn="接下來，我們將推出我們新的環保家居裝飾系列。">Next, we <u>will introduce</u> our new eco-friendly home decor line.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr26.mp3', this)" data-src="audio/expr26.mp3"></button><span class="spoken" data-cn="如果一切按計劃順利進行，我們預計所有分店的銷售額都會上升。"><u>If everything goes well as planned</u>, we <u>anticipate</u> a rise in sales in all our outlets.</span></span></div>
+    </div>
+
+    <h2 data-cn="提供細節">Giving details</h2>
+    <div class="task-section">
+      <h3>Purpose — <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr27.mp3', this)" data-src="audio/expr27.mp3"></button><span class="spoken" data-cn="……去……／為了……，……">…… to … / To ……, ……</span></span></h3>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr28.mp3', this)" data-src="audio/expr28.mp3"></button><span class="spoken" data-cn="接下來，我們將通過發布活動推出我們新的手機應用程式，以展示其功能和會員計劃。">Next, we will introduce our new mobile application with a launch event to showcase the features and membership plans.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr29.mp3', this)" data-src="audio/expr29.mp3"></button><span class="spoken" data-cn="為了鼓勵購買，我們將向電郵訂閱者和社交媒體追蹤者提供獨家折扣和促銷，以留住現有客戶並吸引新客戶。">To encourage purchases, we will offer exclusive discounts and promotions to email subscribers and social media followers to retain existing customers and attract new ones.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr30.mp3', this)" data-src="audio/expr30.mp3"></button><span class="spoken" data-cn="為了實現這一目標，我們已與經驗豐富的設計師和製造商合作，打造一個體現我們品牌價值和美學的系列。">To achieve this, we have partnered with experienced designers and manufacturers to create a collection that embodies our brand's values and aesthetic.</span></span></div>
+
+      <h3>Details — <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr31.mp3', this)" data-src="audio/expr31.mp3"></button><span class="spoken" data-cn="……包括……">…… including ……</span></span></h3>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr32.mp3', this)" data-src="audio/expr32.mp3"></button><span class="spoken" data-cn="我們會向網紅提供詳細的產品資訊，包括功能和優點，讓他們製作內容並發佈在自己的社交媒體帳號上。">We'll provide the influencers with detailed product information, including the features and benefits, to let them create content for posting on their own social media accounts.</span></span></div>
+
+      <h3>Results — <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr33.mp3', this)" data-src="audio/expr33.mp3"></button><span class="spoken" data-cn="……以便……">…… so that ……</span></span></h3>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr34.mp3', this)" data-src="audio/expr34.mp3"></button><span class="spoken" data-cn="我們將進行測試，確保新產品系列的頁面運作順暢，讓我們的客戶擁有無縫的購物體驗。">We will conduct tests to ensure that the pages of the new product line function smoothly so that our customers can have a seamless shopping experience.</span></span></div>
+    </div>
+  </div>
+
+  <!-- ================= Part 3: Opinions on Policy ================= -->
+  <div class="tab-content" id="tab-3">
+    <span class="part-badge">Part 3</span>
+    <h1 data-cn="分享你對公司政策的意見">Share your opinions on a new company policy (Unit 5)</h1>
+
+    <h2 data-cn="開啟話題">Starting a conversation <span style="font-weight:400; color:#888;">(about company facilities / policies / employee benefits)</span></h2>
+    <div class="task-section">
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr35.mp3', this)" data-src="audio/expr35.mp3"></button><span class="spoken" data-cn="你有聽說過……嗎？">Have you heard about…?</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr36.mp3', this)" data-src="audio/expr36.mp3"></button><span class="spoken" data-cn="你覺得……怎麼樣？">What do you think about…?</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr37.mp3', this)" data-src="audio/expr37.mp3"></button><span class="spoken" data-cn="你有沒有聽說過……？">Did you hear about…?</span></span></div>
+    </div>
+
+    <h2 data-cn="表達意見">Expressing opinions</h2>
+    <div class="task-section">
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr38.mp3', this)" data-src="audio/expr38.mp3"></button><span class="spoken" data-cn="我認為／覺得／相信／認為／很喜歡……">I think / feel / believe / reckon / love…</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr39.mp3', this)" data-src="audio/expr39.mp3"></button><span class="spoken" data-cn="在我看來／我認為，……">In my view / opinion, …</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr40.mp3', this)" data-src="audio/expr40.mp3"></button><span class="spoken" data-cn="一方面，……另一方面，……">On the one hand, … On the other hand, …</span></span></div>
+    </div>
+
+    <h2 data-cn="說明原因與影響">Stating causes &amp; explaining effects</h2>
+    <div class="task-section">
+      <ul style="padding-left:20px;">
+        <li><strong data-cn="原因">Causes:</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr41.mp3', this)" data-src="audio/expr41.mp3"></button><span class="spoken" data-cn="……因為／由於／既然……">…because / since / as…</span></span></li>
+        <li><strong data-cn="影響">Effects:</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr42.mp3', this)" data-src="audio/expr42.mp3"></button><span class="spoken" data-cn="……所以……／因此，……／所以／因此，……">…so… / As a result, … / Therefore / Consequently, …</span></span></li>
+      </ul>
+    </div>
+
+    <h2 data-cn="分享個人經驗">Sharing personal experiences</h2>
+    <div class="task-section">
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr43.mp3', this)" data-src="audio/expr43.mp3"></button><span class="spoken" data-cn="我的立場是……">My position is that…</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr44.mp3', this)" data-src="audio/expr44.mp3"></button><span class="spoken" data-cn="就個人而言，……">Personally speaking, …</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr45.mp3', this)" data-src="audio/expr45.mp3"></button><span class="spoken" data-cn="我個人的感覺是……">My personal feeling is that…</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr46.mp3', this)" data-src="audio/expr46.mp3"></button><span class="spoken" data-cn="我自己的經驗是……">My own experience is that…</span></span></div>
+      <p style="color:#888; font-size:14px; margin-top:6px;"><strong data-cn="舉例說明：">Giving examples:</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr47.mp3', this)" data-src="audio/expr47.mp3"></button><span class="spoken" data-cn="例如／譬如，……">For example / instance, …</span></span></p>
+    </div>
+
+    <h2 data-cn="例子：寵物友善政策">Examples — Pet-friendly (Pet Day) policy</h2>
+    <div class="task-section">
+      <div class="task-box">
+        <p><strong style="color:#2f6b3a;" data-cn="正面意見">Positive:</strong></p>
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr48.mp3', this)" data-src="audio/expr48.mp3"></button><span class="spoken" data-cn="太好了！我喜歡這項政策，因為我可以在工作時和我的狗待在一起。我覺得讓寵物在辦公室裡肯定可以改善／提升氣氛。看到不同的寵物也很有趣。例如，有些同事可能會帶他們的貓或狗，而其他人可能會帶更奇特的寵物，例如烏龜或鸚鵡。我真的相信這項寵物友善政策很有意義，因為有寵物在身邊可以減輕許多同事的壓力，並提高／改善他們的工作效率。"><u>Fantastic! I love this policy</u> as I will be able to spend time with my dog at work. I feel that having pets in the office <u>can definitely improve/enhance</u> the atmosphere. It will be fun to see different pets, too. <u>For example,</u> some staff members may bring their cats or dogs, while others may bring more exotic pets, <u>such as</u> tortoises or parrots. <u>I really believe that this</u> pet-friendly <u>policy is meaningful since</u> having pets around can reduce the stress of many staff members and improve/enhance their work output.</span></span></div>
+      </div>
+      <div class="task-box">
+        <p><strong style="color:#9a3412;" data-cn="負面意見">Negative:</strong></p>
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr49.mp3', this)" data-src="audio/expr49.mp3"></button><span class="spoken" data-cn="雖然我明白你的看法，但我傾向認為在辦公室養動物相當不合適，因為牠們可能非常擾人。有動物在身邊很難集中精神。這可能會降低生產力。此外，我覺得沒有考慮到健康和安全問題。有些人不喜歡動物或對動物過敏。這項政策對他們不公平。在我看來，我們應該專注於辦公室的工作，並把寵物留在家裡。"><u>While I understand your view, I tend to think that it is quite inappropriate</u> to have animals in the office <u>because</u> they can be very disturbing. It will be hard to concentrate with animals around. This may decrease productivity. <u>In addition, I feel that no consideration has been given to</u> health and safety issues. There are people who don't like animals or are allergic. <u>This policy is unfair to them. In my opinion,</u> we should focus on work in the office and keep our pets at home.</span></span></div>
+      </div>
+      <div class="task-box">
+        <p><strong style="color:#6a0dad;" data-cn="中立意見">Neutral:</strong></p>
+        <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr50.mp3', this)" data-src="audio/expr50.mp3"></button><span class="spoken" data-cn="我對寵物日有複雜的感受。一方面，讓寵物在辦公室可能對某些同事有益並提升士氣。另一方面，寵物可能造成干擾和噪音。每月推行這項政策有點不切實際。也許我們可以考慮一個折衷方案，例如每年舉辦兩次寵物日。這可能更有效。"><u>I have mixed feelings about</u> Pet Day. <u>On the one hand,</u> having pets at work could be beneficial to some staff members and boost morale. On the other hand, the pets could be disruptive and noisy. It is a bit impractical to implement this policy every month. <u>Perhaps we could consider a compromise, like</u> running Pet Day twice a year. This may be more effective.</span></span></div>
+      </div>
+    </div>
+
+    <h2 data-cn="實用形容詞與動詞">Useful adjectives &amp; verbs</h2>
+    <div class="task-section">
+      <h3 data-cn="形容詞">Adjectives</h3>
+      <table class="words stacked">
+      <tr>
+        <th data-cn="正面形容詞">Positive adjectives</th>
+      </tr>
+      <tr>
+        <td><span class="cn-word" onclick="playAudio('audio/word01.mp3', this)" data-src="audio/word01.mp3" title="Play pronunciation">accommodating<span class="cn-inline"> [遷就的／肯配合的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word02.mp3', this)" data-src="audio/word02.mp3" title="Play pronunciation">beneficial<span class="cn-inline"> [有益的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word03.mp3', this)" data-src="audio/word03.mp3" title="Play pronunciation">considerate<span class="cn-inline"> [體貼的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word04.mp3', this)" data-src="audio/word04.mp3" title="Play pronunciation">convenient<span class="cn-inline"> [方便的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word05.mp3', this)" data-src="audio/word05.mp3" title="Play pronunciation">effective<span class="cn-inline"> [有效的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word06.mp3', this)" data-src="audio/word06.mp3" title="Play pronunciation">cost-effective<span class="cn-inline"> [具成本效益的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word07.mp3', this)" data-src="audio/word07.mp3" title="Play pronunciation">flexible<span class="cn-inline"> [靈活的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word08.mp3', this)" data-src="audio/word08.mp3" title="Play pronunciation">generous<span class="cn-inline"> [慷慨的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word09.mp3', this)" data-src="audio/word09.mp3" title="Play pronunciation">valuable<span class="cn-inline"> [有價值的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word10.mp3', this)" data-src="audio/word10.mp3" title="Play pronunciation">helpful<span class="cn-inline"> [有幫助的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word11.mp3', this)" data-src="audio/word11.mp3" title="Play pronunciation">meaningful<span class="cn-inline"> [有意義的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word12.mp3', this)" data-src="audio/word12.mp3" title="Play pronunciation">morale-boosting<span class="cn-inline"> [鼓舞士氣的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word13.mp3', this)" data-src="audio/word13.mp3" title="Play pronunciation">practical<span class="cn-inline"> [實際的／實用的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word14.mp3', this)" data-src="audio/word14.mp3" title="Play pronunciation">progressive<span class="cn-inline"> [進步的／前衛的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word15.mp3', this)" data-src="audio/word15.mp3" title="Play pronunciation">staff-friendly<span class="cn-inline"> [對員工友善的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word16.mp3', this)" data-src="audio/word16.mp3" title="Play pronunciation">supportive<span class="cn-inline"> [支持性的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word17.mp3', this)" data-src="audio/word17.mp3" title="Play pronunciation">useful<span class="cn-inline"> [有用的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word18.mp3', this)" data-src="audio/word18.mp3" title="Play pronunciation">worthwhile<span class="cn-inline"> [值得的]</span></span></td>
+      </tr>
+      <tr>
+        <th data-cn="負面形容詞">Negative adjectives</th>
+      </tr>
+      <tr>
+        <td><span class="cn-word" onclick="playAudio('audio/word19.mp3', this)" data-src="audio/word19.mp3" title="Play pronunciation">disappointing<span class="cn-inline"> [令人失望的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word20.mp3', this)" data-src="audio/word20.mp3" title="Play pronunciation">disruptive<span class="cn-inline"> [造成干擾的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word21.mp3', this)" data-src="audio/word21.mp3" title="Play pronunciation">disturbing<span class="cn-inline"> [令人不安的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word22.mp3', this)" data-src="audio/word22.mp3" title="Play pronunciation">impractical<span class="cn-inline"> [不切實際的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word23.mp3', this)" data-src="audio/word23.mp3" title="Play pronunciation">inappropriate<span class="cn-inline"> [不合適的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word24.mp3', this)" data-src="audio/word24.mp3" title="Play pronunciation">inconsiderate<span class="cn-inline"> [不體貼的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word25.mp3', this)" data-src="audio/word25.mp3" title="Play pronunciation">inflexible<span class="cn-inline"> [不靈活的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word26.mp3', this)" data-src="audio/word26.mp3" title="Play pronunciation">restrictive<span class="cn-inline"> [限制性的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word27.mp3', this)" data-src="audio/word27.mp3" title="Play pronunciation">rigid<span class="cn-inline"> [僵化的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word28.mp3', this)" data-src="audio/word28.mp3" title="Play pronunciation">short-sighted<span class="cn-inline"> [短視的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word29.mp3', this)" data-src="audio/word29.mp3" title="Play pronunciation">underwhelming<span class="cn-inline"> [不夠出色的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word30.mp3', this)" data-src="audio/word30.mp3" title="Play pronunciation">unfair<span class="cn-inline"> [不公平的]</span></span> · <span class="cn-word" onclick="playAudio('audio/word31.mp3', this)" data-src="audio/word31.mp3" title="Play pronunciation">unreasonable<span class="cn-inline"> [不合理的]</span></span></td>
+      </tr>
+      </table>
+      <h3 data-cn="動詞">Verbs</h3>
+      <table class="words stacked">
+      <tr>
+        <th data-cn="正面動詞">Positive verbs</th>
+      </tr>
+      <tr>
+        <td><span class="cn-word" onclick="playAudio('audio/word32.mp3', this)" data-src="audio/word32.mp3" title="Play pronunciation">increase<span class="cn-inline"> [增加]</span></span> · <span class="cn-word" onclick="playAudio('audio/word33.mp3', this)" data-src="audio/word33.mp3" title="Play pronunciation">improve<span class="cn-inline"> [改善]</span></span> · <span class="cn-word" onclick="playAudio('audio/word34.mp3', this)" data-src="audio/word34.mp3" title="Play pronunciation">enhance<span class="cn-inline"> [提升]</span></span> · <span class="cn-word" onclick="playAudio('audio/word35.mp3', this)" data-src="audio/word35.mp3" title="Play pronunciation">boost<span class="cn-inline"> [促進]</span></span> · <span class="cn-word" onclick="playAudio('audio/word36.mp3', this)" data-src="audio/word36.mp3" title="Play pronunciation">enrich<span class="cn-inline"> [豐富]</span></span> · <span class="cn-word" onclick="playAudio('audio/word37.mp3', this)" data-src="audio/word37.mp3" title="Play pronunciation">promote<span class="cn-inline"> [推廣]</span></span> · <span class="cn-word" onclick="playAudio('audio/word38.mp3', this)" data-src="audio/word38.mp3" title="Play pronunciation">help<span class="cn-inline"> [幫助]</span></span> · <span class="cn-word" onclick="playAudio('audio/word39.mp3', this)" data-src="audio/word39.mp3" title="Play pronunciation">encourage<span class="cn-inline"> [鼓勵]</span></span> · <span class="cn-word" onclick="playAudio('audio/word40.mp3', this)" data-src="audio/word40.mp3" title="Play pronunciation">support<span class="cn-inline"> [支持]</span></span> · <span class="cn-word" onclick="playAudio('audio/word41.mp3', this)" data-src="audio/word41.mp3" title="Play pronunciation">create<span class="cn-inline"> [創造]</span></span></td>
+      </tr>
+      <tr>
+        <th data-cn="負面動詞">Negative verbs</th>
+      </tr>
+      <tr>
+        <td><span class="cn-word" onclick="playAudio('audio/word42.mp3', this)" data-src="audio/word42.mp3" title="Play pronunciation">decrease<span class="cn-inline"> [減少]</span></span> · <span class="cn-word" onclick="playAudio('audio/word43.mp3', this)" data-src="audio/word43.mp3" title="Play pronunciation">reduce<span class="cn-inline"> [降低]</span></span> · <span class="cn-word" onclick="playAudio('audio/word44.mp3', this)" data-src="audio/word44.mp3" title="Play pronunciation">worsen<span class="cn-inline"> [惡化]</span></span> · <span class="cn-word" onclick="playAudio('audio/word45.mp3', this)" data-src="audio/word45.mp3" title="Play pronunciation">impair<span class="cn-inline"> [損害]</span></span> · <span class="cn-word" onclick="playAudio('audio/word46.mp3', this)" data-src="audio/word46.mp3" title="Play pronunciation">hinder<span class="cn-inline"> [阻礙]</span></span></td>
+      </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ================= Part 4: End the Conversation ================= -->
+  <div class="tab-content" id="tab-4">
+    <span class="part-badge">Part 4</span>
+    <h1 data-cn="禮貌地結束對話">End the conversation politely</h1>
+
+    <div class="task-section">
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr51.mp3', this)" data-src="audio/expr51.mp3"></button><span class="spoken" data-cn="我很想再聊久一點，但我真的得走了。很快見。">I'd love to chat longer, but I really must run. See you soon.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr52.mp3', this)" data-src="audio/expr52.mp3"></button><span class="spoken" data-cn="抱歉，我現在得走了，但我希望很快見到你。">Sorry, I've got to go now, but I hope to see you around.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr53.mp3', this)" data-src="audio/expr53.mp3"></button><span class="spoken" data-cn="抱歉，我現在要開會了。不過我們下星期一起吃午飯吧。">Sorry, I have to attend a meeting now. Let's meet for lunch next week though.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr54.mp3', this)" data-src="audio/expr54.mp3"></button><span class="spoken" data-cn="很高興認識你。希望我們會再見面。">It's been lovely to meet you. Hopefully, I'll see you around.</span></span></div>
+      <div class="expr-text"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr55.mp3', this)" data-src="audio/expr55.mp3"></button><span class="spoken" data-cn="我也很高興認識你。祝你今天愉快！">It's nice to meet you too. Have a great day!</span></span></div>
+    </div>
+  </div>
+
+  <!-- ================= Part 5: CA Script Template ================= -->
+  <div class="tab-content" id="tab-5">
+    <span class="part-badge">Part 5</span>
+    <h1 data-cn="25% 配對作業草稿">25% Paired Assignment Draft</h1>
+    <div class="export-bar">
+      <button class="ctrl-btn" onclick="printTab()"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> Print / Save as PDF</button>
+      <button class="ctrl-btn" onclick="downloadWord()"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg> Download as Word</button>
+    </div>
+    <p style="margin:6px 0 4px;">
+      Your Class:
+      <span class="blank" contenteditable="true" data-ph="______"></span>
+      &nbsp;&nbsp;Pair no.
+      <span class="blank" contenteditable="true" data-ph="_____"></span>
+    </p>
+
+    <div class="task-box">
+      <p>The conversation will last <strong>6 minutes</strong>.</p>
+      <p>Student A download this copy as a word.doc and share it with Student B.</p>
+      <p>Start writing your script via Google Doc.</p>
+      <p>The draft will not be marked but it can help you practice more smoothly.</p>
+      <p><strong>Do not memorise any script.</strong> Express your own ideas naturally.</p>
+      <p>Send me a shareable Google doc link to access your CA draft via WhatsApp for my checking and comment.</p>
+    </div>
+
+    <table class="script-table">
+      <thead>
+        <tr>
+          <th>Student A (Name: <span class="blank" contenteditable="true" data-ph="______"></span>)</th>
+          <th>Student B (Name: <span class="blank" contenteditable="true" data-ph="______"></span>)</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'Hi. I don't think we've met yet. I'm <span class="fill" contenteditable="true" data-hint="Role A&#x27;s name">Role A&#x27;s name</span> and I'm from the <span class="fill" contenteditable="true" data-hint="Role A&#x27;s">Role A&#x27;s</span> department. It's nice to meet you.'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Hi. I'm <span class="fill" contenteditable="true" data-hint="Role B&#x27;s name">Role B&#x27;s name</span> from the <span class="fill" contenteditable="true" data-hint="Role B&#x27;s">Role B&#x27;s</span> department. It's nice to meet you too.'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'So how's your day been?'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Very good, thanks for asking. I <span class="fill" contenteditable="true" data-hint="about B&#x27;s holiday plan">about B&#x27;s holiday plan</span>.'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> '<span class="fill" contenteditable="true" data-hint="echo key words on B&#x27;s holiday plan">echo key words on B&#x27;s holiday plan</span>? Nice! It seems that <span class="fill" contenteditable="true" data-hint="showing interest by giving follow up questions">showing interest by giving follow up questions</span>'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Yes. I <span class="fill" contenteditable="true" data-hint="B&#x27;s holiday plan">B&#x27;s holiday plan</span>.'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'Really? I've been thinking about <span class="fill" contenteditable="true" data-hint="B&#x27;s option for his holiday plan">B&#x27;s option for his holiday plan</span>. Do you have any recommendations for <span class="fill" contenteditable="true" data-hint="type of holiday goers">type of holiday goers</span>?'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Definitely! For <span class="fill" contenteditable="true" data-hint="type of holiday goers">type of holiday goers</span>, I'd suggest <span class="fill" contenteditable="true" data-hint="destination">destination</span>. It's <span class="fill" contenteditable="true" data-hint="positive comment on the destination">positive comment on the destination</span>. Plus, it's also <span class="fill" contenteditable="true" data-hint="positive comment">positive comment</span>. It's a great place to <span class="fill" contenteditable="true" data-hint="activity">activity</span>.'<br>'What about you? Do you <span class="fill" contenteditable="true" data-hint="follow up question on holiday plan">follow up question on holiday plan</span>?'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> '<span class="fill" contenteditable="true" data-hint="answer to the follow-up question about the holiday plan">answer to the follow-up question about the holiday plan</span>'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> <span class="fill" contenteditable="true" data-hint="positive comment on A&#x27;s answer and follow-up question">positive comment on A&#x27;s answer and follow-up question</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> <span class="fill" contenteditable="true" data-hint="answer to the follow-up question">answer to the follow-up question</span></div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'That sounds enjoyable! <span class="fill" contenteditable="true" data-hint="positive comment on A&#x27;s answer">positive comment on A&#x27;s answer</span> I'll have to check it out.'</div></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'So, what's your department working on these days?'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'We're <span class="fill" contenteditable="true" data-hint="task in A&#x27;s project in progress">task in A&#x27;s project in progress</span>. Moving forward, we'll <span class="fill" contenteditable="true" data-hint="task in A&#x27;s project to complete">task in A&#x27;s project to complete</span>. Hopefully, we'll <span class="fill" contenteditable="true" data-hint="expected outcome of the project">expected outcome of the project</span>.'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Sounds great! It'll be nice to <span class="fill" contenteditable="true" data-hint="positive comment no A&#x27;s project">positive comment no A&#x27;s project</span>.'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'That's right. What about your department?'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Our department is working on <span class="fill" contenteditable="true" data-hint="task in B&#x27;s project in progress">task in B&#x27;s project in progress</span>. We're aiming to <span class="fill" contenteditable="true" data-hint="expected outcome of B&#x27;s project">expected outcome of B&#x27;s project</span>. We've recently <span class="fill" contenteditable="true" data-hint="task completed in B&#x27;s project">task completed in B&#x27;s project</span>. In the coming months, we'll <span class="fill" contenteditable="true" data-hint="task to complete in B&#x27;s project">task to complete in B&#x27;s project</span>.'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'I'm intrigued by the <span class="fill" contenteditable="true" data-hint="B&#x27;s project">B&#x27;s project</span> already. It will surely help to <span class="fill" contenteditable="true" data-hint="benefit of B&#x27;s project">benefit of B&#x27;s project</span>.'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Thank you, <span class="fill" contenteditable="true" data-hint="Student A&#x27;s name">Student A&#x27;s name</span>. We are very enthusiastic about it.'</div></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'By the way, what do you think about the policy our company introduced?'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'Yes, I think it's a very positive step forward because it <span class="fill" contenteditable="true" data-hint="benefit(s">benefit(s</span> of the new company policy]. <span class="fill" contenteditable="true" data-hint="elaboration on the benefits">elaboration on the benefits</span> What do you think about the new policy?'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'It seems to be <span class="fill" contenteditable="true" data-hint="positive comment on the company policy">positive comment on the company policy</span>. I think it can <span class="fill" contenteditable="true" data-hint="benefit(s">benefit(s</span> of the company policy]. However, I'm worried that <span class="fill" contenteditable="true" data-hint="possible drawback of the policy">possible drawback of the policy</span>. It's important to <span class="fill" contenteditable="true" data-hint="solution to the drawback of the policy">solution to the drawback of the policy</span>.'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'That's a valid concern. <span class="fill" contenteditable="true" data-hint="explanation to agreement on B&#x27;s suggested solution">explanation to agreement on B&#x27;s suggested solution</span>.'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Yes. Hopefully, everything will run smoothly.'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'Certainly. I've got to head back to my team. It was nice talking to you!'</div></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Yes. It was great. I'm going to mingle a bit more. See you around.'</div></td>
+      </tr>
+      <tr>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'See you.'</div></td>
+        <td></td>
+      </tr>
+
+      </tbody>
+    </table>
+
+    <p style="color:#888; font-size:13px; margin-top:10px;" data-cn="點擊灰色底線提示即可輸入你的答案。">Click any grey underlined hint to type your own words. Boxes grow as you write.</p>
+  </div>
+
+  <!-- ================= Part 6: CA Reminder ================= -->
+  <div class="tab-content" id="tab-6">
+    <div class="part-header">
+      <span class="part-badge">Part 6</span>
+      <h1 data-cn="錄製對話影片的重點">🔑 Key Points for Video Recording Conversation</h1>
+    </div>
+
+    <table class="reminder-table">
+      <tbody>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="在安靜的環境中錄影，並關閉所有會發出聲響的設備。">Record in a quiet place. Turn off all beeping devices.</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="確保整張臉清晰可見，聲音清楚錄製。請大聲且清晰地說話。">Ensure your full face is visible and voice is clearly recorded. Speak loudly and clearly.</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="在六分鐘對話開始前，先讀出身份確認訊息。">Read the identification message before your 6-minute conversation.</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="不要背誦或直接朗讀角色卡內容。請自然地表達自己的想法，並適當補充相關資訊。">Do not memorize or read directly from the Role Card. Express your own ideas naturally and add relevant information.</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="避免主導整段對話——雙方都應有公平的發言機會。">Avoid dominating the conversation—both students should contribute equally.</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="錄影期間不要指導或幫助你的夥伴。也不要偷看或指向對方的角色卡。">Do not coach or help your partner during the recording. Do not peek at or point to your partner's Role Card.</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="積極聆聽夥伴的意見，並作出適當回應。">Listen actively and respond appropriately to your partner.</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="錄影必須面對面一次完成，不得配音或剪接。">Recording done face-to-face and in one take. NO dubbing/editing allowed.</span>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="color:#888; font-size:13px; margin-top:10px;" data-cn="點擊「顯示中文」按鈕查看中文翻譯。">Click the "Show Chinese" button to view the Chinese translations.</p>
+  </div>
+
+  <!-- ================= Part 7: Assignment Task ================= -->
+  <div class="tab-content" id="tab-7">
+    <span class="part-badge">Part 7</span>
+    <h1 data-cn="CA 作業任務">Assignment Task</h1>
+
+    <div class="export-bar">
+      <button class="ctrl-btn" onclick="printAssignment()"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> Print / Save as PDF</button>
+    </div>
+
+    <!-- Student A -->
+    <div class="task-box" style="margin-top:16px;">
+      <h2 data-cn="學生 A 任務">Student A Task</h2>
+      <div class="char-card">
+        <div>
+          <div class="char-caption" data-cn="你是 Alex Liu">You are <strong>Alex Liu</strong></div>
+          <p style="color:#555;" data-cn="Bright Future Education Centre 的公共關係部職員。你正在參加員工感謝晚宴。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr56.mp3', this)" data-src="audio/expr56.mp3"></button><span class="spoken" data-cn="Bright Future Education Centre 的公共關係部職員。你正在參加員工感謝晚宴。">a Public Relations Officer at Bright Future Education Centre. You are at a staff appreciation dinner.</span></span></p>
+          <p style="color:#555;" data-cn="與你的同事 Ashley Lam（學生 B，設施部職員）進行對話。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr57.mp3', this)" data-src="audio/expr57.mp3"></button><span class="spoken" data-cn="與你的同事 Ashley Lam（學生 B，設施部職員）進行對話。">Hold a conversation with your colleague, <strong>Ashley Lam</strong> (Student B, a Facilities Officer).</span></span></p>
+        </div>
+      </div>
+
+      <p style="margin:10px 0 6px;" data-cn="你應該完成以下所有項目："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr58.mp3', this)" data-src="audio/expr58.mp3"></button><span class="spoken" data-cn="你應該完成以下所有項目：">You should perform all items below:</span></span></p>
+
+      <h3 data-cn="1. 打招呼並自我介紹"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr59.mp3', this)" data-src="audio/expr59.mp3"></button><span class="spoken" data-cn="1. 打招呼並自我介紹">1. Greet your colleague and introduce yourself</span></span></h3>
+
+      <h3 data-cn="2. 閒聊以下話題"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr60.mp3', this)" data-src="audio/expr60.mp3"></button><span class="spoken" data-cn="2. 閒聊以下話題">2. Make small talk on the following topics</span></span></h3>
+      <ul style="padding-left:20px;">
+        <li data-cn="a. 你的週末活動"><strong>a.</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr61.mp3', this)" data-src="audio/expr61.mp3"></button><span class="spoken" data-cn="a. 你的週末活動">Your weekend activities</span></span></li>
+        <li data-cn="b. 你部門負責的一個項目"><strong>b.</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr62.mp3', this)" data-src="audio/expr62.mp3"></button><span class="spoken" data-cn="b. 你部門負責的一個項目">A project run by your department</span></span></li>
+      </ul>
+
+      <div class="task-box" style="background:#f0f8ff; border-left-color:#4a90d9;">
+        <p><strong data-cn="項目：組織開放日">Project: Organising an Open Day</strong></p>
+        <p data-cn="你可以談論："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr63.mp3', this)" data-src="audio/expr63.mp3"></button><span class="spoken" data-cn="你可以談論：到目前為止已完成的工作，以及未來幾個月的計劃。">You may talk about what has been done so far, and plans for the coming months.</span></span></p>
+      </div>
+
+      <h3 data-cn="3. 分享你對一項新公司政策的意見並支持你的觀點"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr64.mp3', this)" data-src="audio/expr64.mp3"></button><span class="spoken" data-cn="3. 分享你對一項新公司政策的意見並支持你的觀點">3. Share your opinions on a new company policy and support your views with reasons</span></span></h3>
+      <div class="task-box" style="background:#fff8f0; border-left-color:#e8a87c;">
+        <p><strong data-cn="公司剛推出一項新的工作制服政策。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr65.mp3', this)" data-src="audio/expr65.mp3"></button><span class="spoken" data-cn="公司剛推出一項新的工作制服政策。所有員工必須穿著公司提供的 Polo 衫搭配正式長褲或裙子。不允許穿牛仔褲和運動鞋。">Your company has just introduced a new workplace uniform policy. All staff must wear the company-provided polo shirt with formal trousers or skirts. Jeans and sneakers are not allowed.</span></span></strong></p>
+      </div>
+      <p data-cn="你可以談論："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr66.mp3', this)" data-src="audio/expr66.mp3"></button><span class="spoken" data-cn="你可以談論：你對這項政策的看法和感受，以及原因。這項政策可能為公司和員工帶來的潛在好處和缺點。">You may talk about what you think or feel about the policy and why. Also discuss the potential benefits and drawbacks the policy may bring to the company and its employees.</span></span></p>
+
+      <h3 data-cn="4. 禮貌地結束對話"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr67.mp3', this)" data-src="audio/expr67.mp3"></button><span class="spoken" data-cn="4. 禮貌地結束對話">4. End the conversation politely</span></span></h3>
+    </div>
+
+    <!-- Student B -->
+    <div class="task-box" style="margin-top:20px;">
+      <h2 data-cn="學生 B 任務">Student B Task</h2>
+      <div class="char-card">
+        <div>
+          <div class="char-caption" data-cn="你是 Ashley Lam">You are <strong>Ashley Lam</strong></div>
+          <p style="color:#555;" data-cn="Bright Future Education Centre 的設施部職員。你正在參加員工感謝晚宴。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr68.mp3', this)" data-src="audio/expr68.mp3"></button><span class="spoken" data-cn="Bright Future Education Centre 的設施部職員。你正在參加員工感謝晚宴。">a Facilities Officer at Bright Future Education Centre. You are at a staff appreciation dinner.</span></span></p>
+          <p style="color:#555;" data-cn="與你的同事 Alex Liu（學生 A，公共關係部職員）進行對話。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr69.mp3', this)" data-src="audio/expr69.mp3"></button><span class="spoken" data-cn="與你的同事 Alex Liu（學生 A，公共關係部職員）進行對話。">Hold a conversation with your colleague, <strong>Alex Liu</strong> (Student A, a Public Relations Officer).</span></span></p>
+        </div>
+      </div>
+
+      <p style="margin:10px 0 6px;" data-cn="你應該完成以下所有項目："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr70.mp3', this)" data-src="audio/expr70.mp3"></button><span class="spoken" data-cn="你應該完成以下所有項目：">You should perform all items below:</span></span></p>
+
+      <h3 data-cn="1. 打招呼並自我介紹"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr71.mp3', this)" data-src="audio/expr71.mp3"></button><span class="spoken" data-cn="1. 打招呼並自我介紹">1. Greet your colleague and introduce yourself</span></span></h3>
+
+      <h3 data-cn="2. 閒聊以下話題"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr72.mp3', this)" data-src="audio/expr72.mp3"></button><span class="spoken" data-cn="2. 閒聊以下話題">2. Make small talk on the following topics</span></span></h3>
+      <ul style="padding-left:20px;">
+        <li data-cn="a. 你的週末活動"><strong>a.</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr73.mp3', this)" data-src="audio/expr73.mp3"></button><span class="spoken" data-cn="a. 你的週末活動">Your weekend activities</span></span></li>
+        <li data-cn="b. 你部門負責的一個項目"><strong>b.</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr74.mp3', this)" data-src="audio/expr74.mp3"></button><span class="spoken" data-cn="b. 你部門負責的一個項目">A project run by your department</span></span></li>
+      </ul>
+
+      <div class="task-box" style="background:#f0f8ff; border-left-color:#4a90d9;">
+        <p><strong data-cn="項目：翻新教室">Project: Renovating the classrooms</strong></p>
+        <p data-cn="你可以談論："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr75.mp3', this)" data-src="audio/expr75.mp3"></button><span class="spoken" data-cn="你可以談論：到目前為止已完成的工作，以及未來幾個月的計劃。">You may talk about what has been done so far, and plans for the coming months.</span></span></p>
+      </div>
+
+      <h3 data-cn="3. 分享你對一項新公司政策的意見並支持你的觀點"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr76.mp3', this)" data-src="audio/expr76.mp3"></button><span class="spoken" data-cn="3. 分享你對一項新公司政策的意見並支持你的觀點">3. Share your opinions on a new company policy and support your views with reasons</span></span></h3>
+      <div class="task-box" style="background:#fff8f0; border-left-color:#e8a87c;">
+        <p><strong data-cn="公司剛推出一項新的工作制服政策。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr77.mp3', this)" data-src="audio/expr77.mp3"></button><span class="spoken" data-cn="公司剛推出一項新的工作制服政策。所有員工必須穿著公司提供的 Polo 衫搭配正式長褲或裙子。不允許穿牛仔褲和運動鞋。">Your company has just introduced a new workplace uniform policy. All staff must wear the company-provided polo shirt with formal trousers or skirts. Jeans and sneakers are not allowed.</span></span></strong></p>
+      </div>
+      <p data-cn="你可以談論："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr78.mp3', this)" data-src="audio/expr78.mp3"></button><span class="spoken" data-cn="你可以談論：你對這項政策的看法和感受，以及原因。這項政策可能為公司和員工帶來的潛在好處和缺點。">You may talk about what you think or feel about the policy and why. Also discuss the potential benefits and drawbacks the policy may bring to the company and its employees.</span></span></p>
+
+      <h3 data-cn="4. 禮貌地結束對話"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr79.mp3', this)" data-src="audio/expr79.mp3"></button><span class="spoken" data-cn="4. 禮貌地結束對話">4. End the conversation politely</span></span></h3>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let synth = window.speechSynthesis;
+let currentWordEl = null;
+
+function switchTab(index) {
+  if (typeof stopAll === 'function') stopAll();
+  const contents = document.querySelectorAll('.tab-content');
+  const buttons = document.querySelectorAll('.tab-btn');
+  contents.forEach(c => c.classList.remove('active'));
+  buttons.forEach(b => b.classList.remove('active'));
+  contents[index].classList.add('active');
+  buttons[index].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Chinese translation toggle
+function toggleAllCN(show) {
+  document.querySelector('.container').classList.toggle('cn-active', show);
+}
+
+function initTranslations() {
+  document.querySelectorAll('[data-cn]').forEach(el => {
+    if (el.dataset.cnProcessed) return;
+    el.dataset.cnProcessed = '1';
+    const trans = document.createElement('div');
+    trans.className = 'cn-translation';
+    trans.textContent = el.dataset.cn;
+    el.after(trans);
+  });
+}
+
+// Word pronunciation (browser TTS)
+function wrapWordsInEl(el) {
+  el.normalize();
+  Array.from(el.childNodes).forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const words = node.textContent.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      words.forEach(w => {
+        if (w.trim() === '') {
+          frag.appendChild(document.createTextNode(w));
+        } else {
+          const wordSpan = document.createElement('span');
+          wordSpan.className = 'word';
+          wordSpan.textContent = w;
+          wordSpan.addEventListener('click', function(e) {
+            e.stopPropagation();
+            speakWord(w.replace(/[^a-zA-Z'-]/g, ''), this);
+          });
+          frag.appendChild(wordSpan);
+        }
+      });
+      node.parentNode.replaceChild(frag, node);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      wrapWordsInEl(node);
+    }
+  });
+}
+
+function initWordClick() {
+  document.querySelectorAll('.expr-text .spoken, .task-box .spoken, .task-section .spoken').forEach(wrapWordsInEl);
+}
+
+function speakWord(word, el) {
+  if (!word) return;
+  if (synth.speaking) {
+    synth.cancel();
+    if (currentWordEl) currentWordEl.classList.remove('speaking');
+    if (currentWordEl === el) { currentWordEl = null; return; }
+  }
+  if (currentWordEl) currentWordEl.classList.remove('speaking');
+  el.classList.add('speaking');
+  currentWordEl = el;
+  const utter = new SpeechSynthesisUtterance(word);
+  utter.rate = 0.85;
+  utter.pitch = 1;
+  const voices = synth.getVoices();
+  const v = voices.find(x => x.lang && x.lang.startsWith('en-GB'));
+  if (v) utter.voice = v;
+  utter.onend = function() { el.classList.remove('speaking'); currentWordEl = null; };
+  utter.onerror = function() { el.classList.remove('speaking'); currentWordEl = null; };
+  synth.speak(utter);
+}
+
+
+// Audio playback (MP3 per expression) — matches CA Practice 1
+let currentAudio = null;
+let currentBtn = null;
+let playlist = [];
+let playlistIdx = 0;
+let isPlayingAll = false;
+
+function getSpeed() {
+  return parseFloat(document.getElementById('speedSlider').value);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.getElementById('speedSlider');
+  slider.addEventListener('input', function() {
+    document.getElementById('speedDisplay').textContent = this.value + 'x';
+    if (currentAudio && !currentAudio.paused) {
+      currentAudio.playbackRate = getSpeed();
+    }
+  });
+});
+
+function resetBtn(btn) {
+  if (!btn) return;
+  btn.classList.remove('playing');
+  if (btn.classList.contains('btn-icon')) {
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';
+  }
+}
+
+function setBtnPause(btn) {
+  btn.classList.add('playing');
+  if (btn.classList.contains('btn-icon')) {
+    btn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="7" y="5" width="4" height="14"/><rect x="13" y="5" width="4" height="14"/></svg>';
+  }
+}
+
+function playAudio(src, btn) {
+  if (isPlayingAll) stopAll();
+
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    if (currentBtn && currentBtn !== btn) resetBtn(currentBtn);
+    if (currentBtn === btn) {
+      currentAudio = null;
+      currentBtn = null;
+      return;
+    }
+  }
+
+  currentAudio = new Audio(src);
+  currentAudio.playbackRate = getSpeed();
+  currentBtn = btn;
+  setBtnPause(btn);
+  currentAudio.play();
+
+  currentAudio.addEventListener('ended', function() {
+    resetBtn(btn);
+    currentAudio = null;
+    currentBtn = null;
+  });
+}
+
+function visibleBtns() {
+  const active = document.querySelector('.tab-content.active');
+  return active ? active.querySelectorAll('.btn-icon') : [];
+}
+
+function playAll() {
+  if (isPlayingAll) return;
+  isPlayingAll = true;
+  document.getElementById('playAllBtn').disabled = true;
+  document.getElementById('pauseAllBtn').disabled = false;
+  document.getElementById('stopAllBtn').disabled = false;
+
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    if (currentBtn) resetBtn(currentBtn);
+  }
+
+  playlist = [];
+  visibleBtns().forEach(b => playlist.push(b.getAttribute('data-src')));
+  playlistIdx = 0;
+  playNext();
+}
+
+function playNext() {
+  if (!isPlayingAll || playlistIdx >= playlist.length) {
+    stopAll();
+    return;
+  }
+  const src = playlist[playlistIdx];
+  const btns = visibleBtns();
+  const btn = btns[playlistIdx];
+
+  if (currentAudio) {
+    currentAudio.pause();
+    if (currentBtn) resetBtn(currentBtn);
+  }
+
+  currentAudio = new Audio(src);
+  currentAudio.playbackRate = getSpeed();
+  currentBtn = btn;
+  setBtnPause(btn);
+  currentAudio.play();
+
+  currentAudio.addEventListener('ended', function() {
+    resetBtn(btn);
+    playlistIdx++;
+    if (isPlayingAll && playlistIdx < playlist.length) {
+      playNext();
+    } else {
+      stopAll();
+    }
+  });
+}
+
+function pauseAll() {
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+  }
+  document.getElementById('pauseAllBtn').disabled = true;
+  document.getElementById('playAllBtn').disabled = false;
+  document.getElementById('playAllBtn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg> Resume';
+}
+
+function stopAll() {
+  isPlayingAll = false;
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio = null;
+  }
+  if (currentBtn) {
+    resetBtn(currentBtn);
+    currentBtn = null;
+  }
+  document.getElementById('playAllBtn').disabled = false;
+  document.getElementById('playAllBtn').innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg> Play All';
+  document.getElementById('pauseAllBtn').disabled = true;
+  document.getElementById('stopAllBtn').disabled = true;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  initTranslations();
+  if (synth.getVoices().length) initWordClick();
+  else synth.addEventListener('voiceschanged', initWordClick, { once: true });
+});
+
+// ── Part 5 export: Print / Save as PDF & Download as Word ──
+function printTab() {
+  stopAll();
+  const tab = document.getElementById('tab-5');
+  document.body.classList.add('printing');
+  tab.classList.add('printing');
+  const win = window.open('', '_blank', 'width=1000,height=800');
+  if (win) {
+    win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>CA Script Template</title>');
+    win.document.write('<style>body{font-family:"Segoe UI",Tahoma,sans-serif;color:#333;padding:24px;}');
+    win.document.write('table{width:100%;border-collapse:collapse;} th,td{border:1px solid #999;padding:10px 12px;vertical-align:top;text-align:left;} th{background:#eee;}');
+    win.document.write('.script-speaker{font-weight:700;margin-right:6px;}');
+    win.document.write('.fill{display:inline-block;min-width:60px;border-bottom:1px dashed #888;padding:0 4px;}');
+    win.document.write('.blank{display:inline-block;min-width:80px;border-bottom:1px solid #000;padding:0 4px;}');
+    win.document.write('.export-bar{display:none;} .script-table td:empty{background:#fafafa;}');
+    win.document.write('</style></head><body>');
+    win.document.write('<h2>25% Paired Assignment Draft</h2>');
+    const header = tab.querySelector('.task-box');
+    if (header) win.document.write(header.outerHTML);
+    win.document.write('<table>');
+    const ths = tab.querySelectorAll('.script-table thead th');
+    win.document.write('<tr><th>' + ths[0].innerText + '</th><th>' + ths[1].innerText + '</th></tr>');
+    tab.querySelectorAll('.script-table tbody tr').forEach(tr => {
+      const tds = tr.querySelectorAll('td');
+      const a = tds[0] ? tds[0].innerText.replace(/^\s*A\s+/, 'A: ') : '';
+      const b = tds[1] ? tds[1].innerText.replace(/^\s*B\s+/, 'B: ') : '';
+      win.document.write('<tr><td>' + a + '</td><td>' + b + '</td></tr>');
+    });
+    win.document.write('</table>');
+    win.document.write('</body></html>');
+    win.document.close();
+    win.focus();
+    setTimeout(function() { win.print(); }, 400);
+  }
+}
+
+function downloadWord() {
+  stopAll();
+  const tab = document.getElementById('tab-5');
+  let html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>CA Script Template</title>';
+  html += '<style>body{font-family:"Calibri","Segoe UI",sans-serif;font-size:12pt;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #999;padding:8px 10px;vertical-align:top;} th{background:#eee;}';
+  html += '.script-speaker{font-weight:bold;} .fill{color:#888;border-bottom:1px dashed #999;} .blank{color:#000;}</style></head><body>';
+  const header = tab.querySelector('.task-box');
+  if (header) html += header.innerHTML;
+  html += '<table><thead><tr><th>' + tab.querySelectorAll('.script-table thead th')[0].innerText + '</th><th>' + tab.querySelectorAll('.script-table thead th')[1].innerText + '</th></tr></thead><tbody>';
+  tab.querySelectorAll('.script-table tbody tr').forEach(tr => {
+    const tds = tr.querySelectorAll('td');
+    const a = tds[0] ? tds[0].innerText.replace(/^\s*A\s+/, 'A: ') : '';
+    const b = tds[1] ? tds[1].innerText.replace(/^\s*B\s+/, 'B: ') : '';
+    html += '<tr><td>' + a + '</td><td>' + b + '</td></tr>';
+  });
+  html += '</tbody></table></body></html>';
+  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = '3107_CA_script_template.doc';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function() { URL.revokeObjectURL(url); a.remove(); }, 1000);
+}
+
+function printAssignment() {
+  stopAll();
+  const tab = document.getElementById('tab-7');
+  const win = window.open('', '_blank', 'width=1000,height=800');
+  if (win) {
+    win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>LAN3107 Assignment Task</title>');
+    win.document.write('<style>body{font-family:"Segoe UI",Tahoma,sans-serif;color:#333;padding:24px;line-height:1.6;}');
+    win.document.write('h1{font-size:20px;color:#4b0082;margin-bottom:4px;}');
+    win.document.write('h2{font-size:17px;color:#6a0dad;margin:18px 0 8px;}');
+    win.document.write('h3{font-size:15px;color:#8a2be2;margin:14px 0 6px;}');
+    win.document.write('.task-box{background:#f8f0ff;border-left:4px solid #9370db;padding:14px 18px;margin:12px 0;border-radius:0 8px 8px 0;}');
+    win.document.write('.task-box p,.task-box li{margin-bottom:4px;}');
+    win.document.write('ul{padding-left:20px;}');
+    win.document.write('.info-box{background:#f0f8ff;border-left:4px solid #4a90d9;padding:12px 16px;margin:10px 0;border-radius:0 8px 8px 0;}');
+    win.document.write('.warn-box{background:#fff8f0;border-left:4px solid #e8a87c;padding:12px 16px;margin:10px 0;border-radius:0 8px 8px 0;}');
+    win.document.write('.cn{color:#8b5a2b;font-size:13px;margin-top:2px;}');
+    win.document.write('.export-bar{display:none;}');
+    win.document.write('.part-badge{display:inline-block;background:#4b0082;color:white;font-size:11px;font-weight:700;padding:2px 10px;border-radius:100px;margin-bottom:6px;}');
+    win.document.write('</style></head><body>');
+
+    const badge = tab.querySelector('.part-badge');
+    const title = tab.querySelector('h1');
+    if (badge) win.document.write('<div class="part-badge">' + badge.innerText + '</div>');
+    if (title) win.document.write('<h1>' + title.innerText + '</h1>');
+
+    const taskBoxes = tab.querySelectorAll('.task-box');
+    taskBoxes.forEach(box => {
+      win.document.write('<div class="task-box">' + box.innerHTML + '</div>');
+    });
+
+    win.document.write('</body></html>');
+    win.document.close();
+    win.focus();
+    setTimeout(function() { win.print(); }, 400);
+  }
+}
+</script>
+
+</body>
+</html>
