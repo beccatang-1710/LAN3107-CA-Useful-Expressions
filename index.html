@@ -94,8 +94,8 @@ body::after {
 }
 
 .page-header .header-row img.qrcode {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   flex-shrink: 0;
   border-radius: 8px;
   border: 2px solid #9370db;
@@ -449,49 +449,39 @@ table.reminder-table td {
 .cn-toggle-wrap {
   text-align: right;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-.cn-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
+.cn-toggle-btn {
+  display: inline-block;
+  padding: 6px 16px;
   font-size: 14px;
   font-weight: 600;
-  color: #6a0dad;
+  border: 2px solid #9370db;
+  border-radius: 100px;
+  cursor: pointer;
+  background: #d8bfd8;
+  color: #555;
+  transition: background 0.2s, color 0.2s;
   user-select: none;
 }
 
-.cn-toggle input {
-  width: 40px;
-  height: 22px;
-  appearance: none;
-  background: #d8bfd8;
-  border-radius: 11px;
-  position: relative;
-  cursor: pointer;
-  transition: background 0.2s;
-  flex-shrink: 0;
+.cn-toggle-btn:hover {
+  background: #c9aec9;
 }
 
-.cn-toggle input::before {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: white;
-  top: 2px;
-  left: 2px;
-  transition: transform 0.2s;
-}
-
-.cn-toggle input:checked {
+.cn-toggle-btn.active-trad {
   background: #9370db;
+  color: white;
 }
 
-.cn-toggle input:checked::before {
-  transform: translateX(18px);
+.cn-toggle-btn.active-simp {
+  background: #4b0082;
+  color: white;
 }
 
 .hint {
@@ -664,6 +654,15 @@ table.reminder-table td {
   margin-right: 6px;
 }
 
+.section-label td {
+  background: #f0e8f8 !important;
+  padding: 8px 14px !important;
+  font-weight: 700;
+  font-size: 14px;
+  color: #4b0082;
+  border-bottom: 2px solid #d8bfd8;
+}
+
 .fill {
   display: inline-block;
   min-width: 60px;
@@ -695,9 +694,195 @@ table.reminder-table td {
   flex-wrap: wrap;
 }
 
+.role-card {
+  border: 2px solid #9370db;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  background: linear-gradient(135deg, #faf5ff 0%, #f0e6f7 100%);
+  box-shadow: 0 2px 8px rgba(147,112,219,0.15);
+}
+
+.role-card-header {
+  background: #4b0082;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.role-card-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4b0082;
+  margin-bottom: 4px;
+}
+
+.role-card-title {
+  font-size: 14px;
+  color: #6a0dad;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.role-card-step {
+  background: white;
+  border-left: 4px solid #9370db;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.role-card-step h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: #4b0082;
+}
+
+.role-card-step p {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.role-card-project {
+  background: #f0f8ff;
+  border: 1px solid #4a90d9;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 8px 0;
+}
+
+.role-card-project strong {
+  color: #2f6b3a;
+}
+
+.role-card-policy {
+  background: #fff8f0;
+  border: 1px solid #e8a87c;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 8px 0;
+}
+
+.role-card-policy strong {
+  color: #9a3412;
+}
+
+.role-card-steps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .role-card-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 600px) {
   .tab-btn { padding: 10px 12px; font-size: 13px; }
   .char-card { flex-direction: column; text-align: center; }
+}
+
+/* Survival Grid */
+.survival-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin: 16px 0 24px;
+}
+
+.survival-card.wide {
+  grid-column: 1 / -1;
+}
+
+.survival-card-body.cols-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 20px;
+}
+
+@media (max-width: 900px) {
+  .survival-card-body.cols-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .survival-card-body.cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.survival-card-body.cols-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 20px;
+}
+
+@media (max-width: 1000px) {
+  .survival-card-body.cols-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .survival-card-body.cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.survival-card {
+  background: #fff;
+  border: 2px solid #e6d8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(147,112,219,0.1);
+}
+
+.survival-card-header {
+  background: linear-gradient(135deg, #4b0082 0%, #6a0dad 100%);
+  color: white;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.survival-card-body {
+  padding: 14px 16px;
+}
+
+.survival-sub {
+  font-weight: 700;
+  color: #6a0dad;
+  font-size: 13px;
+  margin: 10px 0 4px;
+  padding-bottom: 2px;
+  border-bottom: 1px dashed #d8bfd8;
+}
+
+.survival-sub:first-child {
+  margin-top: 0;
+}
+
+.survival-item {
+  font-size: 13px;
+  color: #333;
+  padding: 2px 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .survival-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -711,16 +896,13 @@ table.reminder-table td {
   <div class="header-row">
     <img class="qrcode" src="qrcode.png" alt="QR Code">
     <div>
-      <h1>Essential Workplace Communication: Effective Oral Interaction (LAN3107)</h1>
-      <p>Useful Expressions for the CA Assignment</p>
+      <h1 data-cn="職場基本溝通：有效的口頭互動 (LAN3107)" data-cn-s="职场基本沟通：有效的口头互动 (LAN3107)">Essential Workplace Communication: Effective Oral Interaction (LAN3107)</h1>
+      <p data-cn="CA 作業實用表達方式" data-cn-s="CA 作业实用表达方式">Useful Expressions for the CA Assignment</p>
     </div>
   </div>
   <p class="presented-by">Presented by Rebecca Tang</p>
   <div class="cn-toggle-wrap">
-    <label class="cn-toggle">
-      <input type="checkbox" onchange="toggleAllCN(this.checked)">
-      <span>中文翻译</span>
-    </label>
+    <button class="cn-toggle-btn" id="langToggle" onclick="cycleLang()">中文翻译</button>
   </div>
 </div>
 
@@ -742,7 +924,7 @@ table.reminder-table td {
     <button class="tab-btn" onclick="switchTab(3)">Part 3 — Opinions on Policy</button>
     <button class="tab-btn" onclick="switchTab(4)">Part 4 — End the Conversation</button>
     <button class="tab-btn" onclick="switchTab(5)">Part 5 — CA Script Template</button>
-    <button class="tab-btn" onclick="switchTab(6)">Part 6 — CA Reminder</button>
+    <button class="tab-btn" onclick="switchTab(6)">Part 6 — CA Notes to students</button>
     <button class="tab-btn" onclick="switchTab(7)">Part 7 — Assignment Task</button>
   </div>
 
@@ -990,7 +1172,6 @@ table.reminder-table td {
     <span class="part-badge">Part 5</span>
     <h1 data-cn="25% 配對作業草稿">25% Paired Assignment Draft</h1>
     <div class="export-bar">
-      <button class="ctrl-btn" onclick="printTab()"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> Print / Save as PDF</button>
       <button class="ctrl-btn" onclick="downloadWord()"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg> Download as Word</button>
     </div>
     <p style="margin:6px 0 4px;">
@@ -1009,6 +1190,129 @@ table.reminder-table td {
       <p>Send me a shareable Google doc link to access your CA draft via WhatsApp for my checking and comment.</p>
     </div>
 
+    <!-- ================= Summary of Simple Phrases for Survival ================= -->
+    <h2 style="margin-top:24px;">📋 Summary of Simple Phrases for Survival</h2>
+
+    <div class="survival-grid">
+      <!-- 1 & 2a. START THE CONVERSATION + SMALL TALK ABOUT WEEKENDS -->
+      <div class="survival-card wide">
+        <div class="survival-card-header">1. START THE CONVERSATION &amp; 2a. SMALL TALK ABOUT WEEKENDS</div>
+        <div class="survival-card-body cols-4">
+          <div>
+            <div class="survival-sub">Introduce Yourself</div>
+            <div class="survival-item">✅ Hi, I'm __________ from the __________ Department.</div>
+            <div class="survival-item">✅ Nice to meet you.</div>
+            <div class="survival-item">✅ How are you enjoying the staff dinner?</div>
+          </div>
+          <div>
+            <div class="survival-sub">Show Interest</div>
+            <div class="survival-item">✅ Really?</div>
+            <div class="survival-item">✅ That sounds fun!</div>
+            <div class="survival-item">✅ That's interesting!</div>
+          </div>
+          <div>
+            <div class="survival-sub">Ask Follow-up Questions</div>
+            <div class="survival-item">✅ Where did you go?</div>
+            <div class="survival-item">✅ How was it?</div>
+            <div class="survival-item">✅ What was the best part?</div>
+          </div>
+          <div>
+            <div class="survival-sub">Useful Responses</div>
+            <div class="survival-item">✅ I spent time with my family.</div>
+            <div class="survival-item">✅ I attended a concert.</div>
+            <div class="survival-item">✅ I tried a new restaurant.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2b. TALK ABOUT YOUR DEPARTMENT PROJECT -->
+      <div class="survival-card wide">
+        <div class="survival-card-header">2b. TALK ABOUT YOUR DEPARTMENT PROJECT</div>
+        <div class="survival-card-body cols-3">
+          <div>
+            <div class="survival-sub">SO FAR... (Present Perfect)</div>
+            <div class="survival-item">✅ So far, we have completed...</div>
+            <div class="survival-item">✅ We have already...</div>
+            <div class="survival-item" style="padding-left:24px; color:#555;">designed promotional posters / confirmed the event schedule / replaced old furniture / upgraded the lighting system.</div>
+          </div>
+          <div>
+            <div class="survival-sub">CURRENTLY... (Present Continuous)</div>
+            <div class="survival-item">✅ Currently, we are...</div>
+            <div class="survival-item">✅ At the moment, we are...</div>
+            <div class="survival-item" style="padding-left:24px; color:#555;">promoting the Open Day / contacting schools / installing smart boards / improving the air-conditioning system.</div>
+          </div>
+          <div>
+            <div class="survival-sub">NEXT... (Future)</div>
+            <div class="survival-item">✅ Next, we will...</div>
+            <div class="survival-item">✅ In the coming weeks, we will...</div>
+            <div class="survival-item" style="padding-left:24px; color:#555;">invite guest speakers / organise campus tours / upgrade computer equipment / conduct safety inspections.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. GIVE YOUR OPINION ABOUT THE NEW UNIFORM POLICY -->
+      <div class="survival-card wide">
+        <div class="survival-card-header">3. GIVE YOUR OPINION ABOUT THE NEW UNIFORM POLICY</div>
+        <div class="survival-card-body cols-3">
+          <div>
+            <div class="survival-sub">State Your Opinion</div>
+            <div class="survival-item">✅ I support the new policy because...</div>
+            <div class="survival-item">✅ I think it's a good idea because...</div>
+            <div class="survival-item">✅ I'm not entirely in favour of the policy because...</div>
+            <div class="survival-item">✅ I have mixed feelings about it.</div>
+
+            <div class="survival-sub">Advantages</div>
+            <div class="survival-item">✅ It creates a professional image.</div>
+            <div class="survival-item">✅ Staff look more united.</div>
+            <div class="survival-item">✅ Visitors can identify staff easily.</div>
+            <div class="survival-item">✅ Employees may spend less on work clothes.</div>
+          </div>
+          <div>
+            <div class="survival-sub">Disadvantages</div>
+            <div class="survival-item">✅ Some staff may feel uncomfortable.</div>
+            <div class="survival-item">✅ The dress code is too restrictive.</div>
+            <div class="survival-item">✅ Formal clothing may not be practical for some jobs.</div>
+            <div class="survival-item">✅ Employees may prefer more flexibility.</div>
+
+            <div class="survival-sub">Agreeing</div>
+            <div class="survival-item">✅ I completely agree.</div>
+            <div class="survival-item">✅ That's a good point.</div>
+            <div class="survival-item">✅ You're absolutely right.</div>
+            <div class="survival-item">✅ I feel the same way.</div>
+          </div>
+          <div>
+            <div class="survival-sub">Partly Agreeing</div>
+            <div class="survival-item">✅ I see your point, but...</div>
+            <div class="survival-item">✅ That's true, however...</div>
+            <div class="survival-item">✅ I agree to some extent, although...</div>
+
+            <div class="survival-sub">Disagreeing Politely</div>
+            <div class="survival-item">✅ I understand your opinion, but...</div>
+            <div class="survival-item">✅ I have a different view.</div>
+            <div class="survival-item">✅ While I respect your opinion, I think...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. END THE CONVERSATION -->
+      <div class="survival-card wide">
+        <div class="survival-card-header">4. END THE CONVERSATION</div>
+        <div class="survival-card-body cols-3">
+          <div>
+            <div class="survival-item">✅ It was great talking to you.</div>
+            <div class="survival-item">✅ I've enjoyed our conversation.</div>
+          </div>
+          <div>
+            <div class="survival-item">✅ Good luck with your project.</div>
+            <div class="survival-item">✅ Enjoy the rest of the evening.</div>
+          </div>
+          <div>
+            <div class="survival-item">✅ See you around.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <table class="script-table">
       <thead>
         <tr>
@@ -1017,6 +1321,7 @@ table.reminder-table td {
         </tr>
       </thead>
       <tbody>
+      <tr class="section-label"><td colspan="2">1. Greet your colleague and introduce yourself</td></tr>
       <tr>
         <td><div class="script-line"><span class="script-speaker">A</span> 'Hi. I don't think we've met yet. I'm <span class="fill" contenteditable="true" data-hint="Role A&#x27;s name">Role A&#x27;s name</span> and I'm from the <span class="fill" contenteditable="true" data-hint="Role A&#x27;s">Role A&#x27;s</span> department. It's nice to meet you.'</div></td>
         <td></td>
@@ -1025,32 +1330,33 @@ table.reminder-table td {
         <td></td>
         <td><div class="script-line"><span class="script-speaker">B</span> 'Hi. I'm <span class="fill" contenteditable="true" data-hint="Role B&#x27;s name">Role B&#x27;s name</span> from the <span class="fill" contenteditable="true" data-hint="Role B&#x27;s">Role B&#x27;s</span> department. It's nice to meet you too.'</div></td>
       </tr>
+      <tr class="section-label"><td colspan="2">2a. Make small talk — Your weekend activities</td></tr>
       <tr>
-        <td><div class="script-line"><span class="script-speaker">A</span> 'So how's your day been?'</div></td>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'So <span class="fill" contenteditable="true" data-hint="starting a casual conversation using an icebreaker for leisure">starting a casual conversation using an icebreaker for leisure</span>?'</div></td>
         <td></td>
       </tr>
       <tr>
         <td></td>
-        <td><div class="script-line"><span class="script-speaker">B</span> 'Very good, thanks for asking. I <span class="fill" contenteditable="true" data-hint="about B&#x27;s holiday plan">about B&#x27;s holiday plan</span>.'</div></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Very good, thanks for asking. I <span class="fill" contenteditable="true" data-hint="about B&#x27;s weekend activity">about B&#x27;s weekend activity</span>.'</div></td>
       </tr>
       <tr>
-        <td><div class="script-line"><span class="script-speaker">A</span> '<span class="fill" contenteditable="true" data-hint="echo key words on B&#x27;s holiday plan">echo key words on B&#x27;s holiday plan</span>? Nice! It seems that <span class="fill" contenteditable="true" data-hint="showing interest by giving follow up questions">showing interest by giving follow up questions</span>'</div></td>
+        <td><div class="script-line"><span class="script-speaker">A</span> '<span class="fill" contenteditable="true" data-hint="echo key words on B&#x27;s weekend activity">echo key words on B&#x27;s weekend activity</span>? <span class="fill" contenteditable="true" data-hint="short reaction token">short reaction token</span> <span class="fill" contenteditable="true" data-hint="giving positive comments or compliments">giving positive comments or compliments</span>'</div></td>
         <td></td>
       </tr>
       <tr>
         <td></td>
-        <td><div class="script-line"><span class="script-speaker">B</span> 'Yes. I <span class="fill" contenteditable="true" data-hint="B&#x27;s holiday plan">B&#x27;s holiday plan</span>.'</div></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> 'Yes. I <span class="fill" contenteditable="true" data-hint="B&#x27;s weekend activity">B&#x27;s weekend activity</span>.'</div></td>
       </tr>
       <tr>
-        <td><div class="script-line"><span class="script-speaker">A</span> 'Really? I've been thinking about <span class="fill" contenteditable="true" data-hint="B&#x27;s option for his holiday plan">B&#x27;s option for his holiday plan</span>. Do you have any recommendations for <span class="fill" contenteditable="true" data-hint="type of holiday goers">type of holiday goers</span>?'</div></td>
+        <td><div class="script-line"><span class="script-speaker">A</span> 'Really? That sounds interesting! <span class="fill" contenteditable="true" data-hint="follow-up question about the weekend activity">follow-up question about the weekend activity</span>.'</div></td>
         <td></td>
       </tr>
       <tr>
         <td></td>
-        <td><div class="script-line"><span class="script-speaker">B</span> 'Definitely! For <span class="fill" contenteditable="true" data-hint="type of holiday goers">type of holiday goers</span>, I'd suggest <span class="fill" contenteditable="true" data-hint="destination">destination</span>. It's <span class="fill" contenteditable="true" data-hint="positive comment on the destination">positive comment on the destination</span>. Plus, it's also <span class="fill" contenteditable="true" data-hint="positive comment">positive comment</span>. It's a great place to <span class="fill" contenteditable="true" data-hint="activity">activity</span>.'<br>'What about you? Do you <span class="fill" contenteditable="true" data-hint="follow up question on holiday plan">follow up question on holiday plan</span>?'</div></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> '<span class="fill" contenteditable="true" data-hint="B&#x27;s answer to the follow-up question">B&#x27;s answer to the follow-up question</span>. What about you? What did you do over the weekend?'</div></td>
       </tr>
       <tr>
-        <td><div class="script-line"><span class="script-speaker">A</span> '<span class="fill" contenteditable="true" data-hint="answer to the follow-up question about the holiday plan">answer to the follow-up question about the holiday plan</span>'</div></td>
+        <td><div class="script-line"><span class="script-speaker">A</span> '<span class="fill" contenteditable="true" data-hint="A&#x27;s description of weekend activity using positive adjective">A&#x27;s description of weekend activity using positive adjective</span>.'</div></td>
         <td></td>
       </tr>
       <tr>
@@ -1063,14 +1369,15 @@ table.reminder-table td {
       </tr>
       <tr>
         <td></td>
-        <td><div class="script-line"><span class="script-speaker">B</span> 'That sounds enjoyable! <span class="fill" contenteditable="true" data-hint="positive comment on A&#x27;s answer">positive comment on A&#x27;s answer</span> I'll have to check it out.'</div></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> '<span class="fill" contenteditable="true" data-hint="short reaction token">short reaction token</span> <span class="fill" contenteditable="true" data-hint="positive comment on A&#x27;s answer">positive comment on A&#x27;s answer</span> I'll have to check it out.'</div></td>
       </tr>
+      <tr class="section-label"><td colspan="2">2b. A project run by your department</td></tr>
       <tr>
         <td></td>
         <td><div class="script-line"><span class="script-speaker">B</span> 'So, what's your department working on these days?'</div></td>
       </tr>
       <tr>
-        <td><div class="script-line"><span class="script-speaker">A</span> 'We're <span class="fill" contenteditable="true" data-hint="task in A&#x27;s project in progress">task in A&#x27;s project in progress</span>. Moving forward, we'll <span class="fill" contenteditable="true" data-hint="task in A&#x27;s project to complete">task in A&#x27;s project to complete</span>. Hopefully, we'll <span class="fill" contenteditable="true" data-hint="expected outcome of the project">expected outcome of the project</span>.'</div></td>
+        <td><div class="script-line"><span class="script-speaker">A</span> '<span class="fill" contenteditable="true" data-hint="sharing of department project&#x27;s three different stages">sharing of department project&#x27;s three different stages</span>.'</div></td>
         <td></td>
       </tr>
       <tr>
@@ -1083,7 +1390,7 @@ table.reminder-table td {
       </tr>
       <tr>
         <td></td>
-        <td><div class="script-line"><span class="script-speaker">B</span> 'Our department is working on <span class="fill" contenteditable="true" data-hint="task in B&#x27;s project in progress">task in B&#x27;s project in progress</span>. We're aiming to <span class="fill" contenteditable="true" data-hint="expected outcome of B&#x27;s project">expected outcome of B&#x27;s project</span>. We've recently <span class="fill" contenteditable="true" data-hint="task completed in B&#x27;s project">task completed in B&#x27;s project</span>. In the coming months, we'll <span class="fill" contenteditable="true" data-hint="task to complete in B&#x27;s project">task to complete in B&#x27;s project</span>.'</div></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> '<span class="fill" contenteditable="true" data-hint="sharing of department project&#x27;s three different stages">sharing of department project&#x27;s three different stages</span>.'</div></td>
       </tr>
       <tr>
         <td><div class="script-line"><span class="script-speaker">A</span> 'I'm intrigued by the <span class="fill" contenteditable="true" data-hint="B&#x27;s project">B&#x27;s project</span> already. It will surely help to <span class="fill" contenteditable="true" data-hint="benefit of B&#x27;s project">benefit of B&#x27;s project</span>.'</div></td>
@@ -1093,26 +1400,28 @@ table.reminder-table td {
         <td></td>
         <td><div class="script-line"><span class="script-speaker">B</span> 'Thank you, <span class="fill" contenteditable="true" data-hint="Student A&#x27;s name">Student A&#x27;s name</span>. We are very enthusiastic about it.'</div></td>
       </tr>
+      <tr class="section-label"><td colspan="2">3. Share your opinions on a new company policy and support your views with reasons</td></tr>
       <tr>
         <td></td>
         <td><div class="script-line"><span class="script-speaker">B</span> 'By the way, what do you think about the policy our company introduced?'</div></td>
       </tr>
       <tr>
-        <td><div class="script-line"><span class="script-speaker">A</span> 'Yes, I think it's a very positive step forward because it <span class="fill" contenteditable="true" data-hint="benefit(s">benefit(s</span> of the new company policy]. <span class="fill" contenteditable="true" data-hint="elaboration on the benefits">elaboration on the benefits</span> What do you think about the new policy?'</div></td>
+        <td><div class="script-line"><span class="script-speaker">A</span> '<span class="fill" contenteditable="true" data-hint="State your opinion">State your opinion</span> <span class="fill" contenteditable="true" data-hint="advantages/ disadvantages">advantages/ disadvantages</span> <span class="fill" contenteditable="true" data-hint="of the new company policy">of the new company policy</span>.'</div></td>
         <td></td>
       </tr>
       <tr>
         <td></td>
-        <td><div class="script-line"><span class="script-speaker">B</span> 'It seems to be <span class="fill" contenteditable="true" data-hint="positive comment on the company policy">positive comment on the company policy</span>. I think it can <span class="fill" contenteditable="true" data-hint="benefit(s">benefit(s</span> of the company policy]. However, I'm worried that <span class="fill" contenteditable="true" data-hint="possible drawback of the policy">possible drawback of the policy</span>. It's important to <span class="fill" contenteditable="true" data-hint="solution to the drawback of the policy">solution to the drawback of the policy</span>.'</div></td>
+        <td><div class="script-line"><span class="script-speaker">B</span> '<span class="fill" contenteditable="true" data-hint="State your opinion">State your opinion</span> <span class="fill" contenteditable="true" data-hint="advantages/ disadvantages">advantages/ disadvantages</span> <span class="fill" contenteditable="true" data-hint="of the new company policy">of the new company policy</span>.'</div></td>
       </tr>
       <tr>
-        <td><div class="script-line"><span class="script-speaker">A</span> 'That's a valid concern. <span class="fill" contenteditable="true" data-hint="explanation to agreement on B&#x27;s suggested solution">explanation to agreement on B&#x27;s suggested solution</span>.'</div></td>
+        <td><div class="script-line"><span class="script-speaker">A</span> '<span class="fill" contenteditable="true" data-hint="Agreeing/ partly agreeing/ disagreeing politely">Agreeing/ partly agreeing/ disagreeing politely</span> + <span class="fill" contenteditable="true" data-hint="explanation/ elaboration">explanation/ elaboration</span>.'</div></td>
         <td></td>
       </tr>
       <tr>
         <td></td>
         <td><div class="script-line"><span class="script-speaker">B</span> 'Yes. Hopefully, everything will run smoothly.'</div></td>
       </tr>
+      <tr class="section-label"><td colspan="2">4. End the conversation politely</td></tr>
       <tr>
         <td><div class="script-line"><span class="script-speaker">A</span> 'Certainly. I've got to head back to my team. It was nice talking to you!'</div></td>
         <td></td>
@@ -1132,12 +1441,40 @@ table.reminder-table td {
     <p style="color:#888; font-size:13px; margin-top:10px;" data-cn="點擊灰色底線提示即可輸入你的答案。">Click any grey underlined hint to type your own words. Boxes grow as you write.</p>
   </div>
 
-  <!-- ================= Part 6: CA Reminder ================= -->
+  <!-- ================= Part 6: CA Notes to students ================= -->
   <div class="tab-content" id="tab-6">
     <div class="part-header">
       <span class="part-badge">Part 6</span>
-      <h1 data-cn="錄製對話影片的重點">🔑 Key Points for Video Recording Conversation</h1>
+      <h1 data-cn="學生須知">CA Notes to students</h1>
     </div>
+
+    <h2 data-cn="評估快覽">Assessment Snapshot</h2>
+    <table class="reminder-table">
+      <tbody>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="項目：配對職場角色扮演（佔持續評估 25%）" data-cn-s="项目：配对职场角色扮演（占持续评估 25%）"><strong>Component:</strong> Paired workplace role-play (25% Continuous Assessment)</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="格式與時長：剛好 6 分鐘（評分窗口在身份確認後開始），面對面錄影，一次過完成" data-cn-s="格式与时长：刚好 6 分钟（评分窗口在身份确认后开始），面对面录影，一次过完成"><strong>Format &amp; Duration:</strong> Exactly 6 minutes (graded window starts after the ID check), recorded face-to-face in a single continuous take</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="提交方式：學生 A 於第 7 課晚上 11:55 前提交一個 .mp4 或 .mov 檔案到 Moodle" data-cn-s="提交方式：学生 A 于第 7 课晚上 11:55 前提交一个 .mp4 或 .mov 文件到 Moodle"><strong>Submission:</strong> Student A submits one .mp4 or .mov file to Moodle by Lesson 7, 11:55 p.m.</span>
+          </div></td>
+        </tr>
+        <tr>
+          <td><div class="reminder-item">
+            <span class="reminder-title" data-cn="遲交／誠信政策：對 AI 生成或背誦劇本零容忍；遲交申請須於 3 個工作天內提交正式證明文件" data-cn-s="迟交／诚信政策：对 AI 生成或背诵剧本零容忍；迟交申请须于 3 个工作天内提交正式证明文件"><strong>Late / Integrity Policy:</strong> Zero tolerance for AI generation or script memorization; late requests require official documentary proof within 3 working days</span>
+          </div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 data-cn="錄製對話影片的重點">🔑 Key Points for Video Recording Conversation</h2>
 
     <table class="reminder-table">
       <tbody>
@@ -1190,80 +1527,78 @@ table.reminder-table td {
   <!-- ================= Part 7: Assignment Task ================= -->
   <div class="tab-content" id="tab-7">
     <span class="part-badge">Part 7</span>
-    <h1 data-cn="CA 作業任務">Assignment Task</h1>
+    <h1 data-cn="CA 作業任務" data-cn-s="CA 作业任务">Assignment Task</h1>
 
-    <div class="export-bar">
-      <button class="ctrl-btn" onclick="printAssignment()"><svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> Print / Save as PDF</button>
-    </div>
+    <div class="role-card-steps-grid">
+      <!-- Student A Role Card -->
+      <div class="role-card">
+        <div class="role-card-header">Student A</div>
+        <div class="role-card-name">Alex Liu</div>
+        <div class="role-card-title">Public Relations Officer at Bright Future Education Centre</div>
+        <p style="color:#555; font-size:14px; margin-bottom:12px;" data-cn="你在員工感謝晚宴上。與你的同事 Ashley Lam（學生 B，設施部職員）進行對話。" data-cn-s="你在员工感谢晚宴上。与你的同事 Ashley Lam（学生 B，设施部职员）进行对话。">You are at a staff appreciation dinner. Hold a conversation with your colleague, <strong>Ashley Lam</strong> (Student B, a Facilities Officer).</p>
 
-    <!-- Student A -->
-    <div class="task-box" style="margin-top:16px;">
-      <h2 data-cn="學生 A 任務">Student A Task</h2>
-      <div class="char-card">
-        <div>
-          <div class="char-caption" data-cn="你是 Alex Liu">You are <strong>Alex Liu</strong></div>
-          <p style="color:#555;" data-cn="Bright Future Education Centre 的公共關係部職員。你正在參加員工感謝晚宴。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr56.mp3', this)" data-src="audio/expr56.mp3"></button><span class="spoken" data-cn="Bright Future Education Centre 的公共關係部職員。你正在參加員工感謝晚宴。">a Public Relations Officer at Bright Future Education Centre. You are at a staff appreciation dinner.</span></span></p>
-          <p style="color:#555;" data-cn="與你的同事 Ashley Lam（學生 B，設施部職員）進行對話。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr57.mp3', this)" data-src="audio/expr57.mp3"></button><span class="spoken" data-cn="與你的同事 Ashley Lam（學生 B，設施部職員）進行對話。">Hold a conversation with your colleague, <strong>Ashley Lam</strong> (Student B, a Facilities Officer).</span></span></p>
+        <div class="role-card-step">
+          <h4 data-cn="步驟 1：問候你的同事並自我介紹" data-cn-s="步骤 1：问候你的同事并自我介绍">Step 1: Greet your colleague and introduce yourself</h4>
+        </div>
+
+        <div class="role-card-step">
+          <h4 data-cn="步驟 2：就以下話題閒聊" data-cn-s="步骤 2：就以下话题闲聊">Step 2: Make small talk on the following topics</h4>
+          <p data-cn="a. 你的週末活動" data-cn-s="a. 你的周末活动"><strong>a.</strong> Your weekend activities</p>
+          <p data-cn="b. 你部門負責的一個項目" data-cn-s="b. 你部门负责的一个项目"><strong>b.</strong> A project run by your department</p>
+          <div class="role-card-project">
+            <p><strong data-cn="項目：組織開放日" data-cn-s="项目：组织开放日">Project: Organising an Open Day</strong></p>
+            <p data-cn="你可以談論到目前為止已完成的工作，以及未來幾個月的計劃。" data-cn-s="你可以谈论到目前为止已完成的工作，以及未来几个月的计划。">You may talk about what has been done so far, and plans for the coming months.</p>
+          </div>
+        </div>
+
+        <div class="role-card-step">
+          <h4 data-cn="步驟 3：分享你對一項新公司政策的意見並支持你的觀點" data-cn-s="步骤 3：分享你对一项新公司政策的意见并支持你的观点">Step 3: Share your opinions on a new company policy and support your views with reasons</h4>
+          <div class="role-card-policy">
+            <p><strong data-cn="你的公司剛推出一項新的工作制服政策。" data-cn-s="你的公司刚推出一项新的工作制服政策。">Your company has just introduced a new workplace uniform policy.</strong></p>
+            <p data-cn="所有員工必須穿著公司提供的 Polo 衫搭配正式長褲或裙子。不允許穿牛仔褲和運動鞋。" data-cn-s="所有员工必须穿着公司提供的 Polo 衫搭配正式长裤或裙子。不允许穿牛仔裤和运动鞋。">All staff must wear the company-provided polo shirt with formal trousers or skirts. Jeans and sneakers are not allowed.</p>
+          </div>
+          <p data-cn="你可以談論你對這項政策的看法和感受，以及原因。這項政策可能為公司和員工帶來的潛在好處和缺點。" data-cn-s="你可以谈论你对这项政策的看法和感受，以及原因。这项政策可能为公司和员工带来的潜在好处和缺点。">You may talk about what you think or feel about the policy and why. Also discuss the potential benefits and drawbacks the policy may bring to the company and its employees.</p>
+        </div>
+
+        <div class="role-card-step">
+          <h4 data-cn="步驟 4：禮貌地結束對話" data-cn-s="步骤 4：礼貌地结束对话">Step 4: End the conversation politely</h4>
         </div>
       </div>
 
-      <p style="margin:10px 0 6px;" data-cn="你應該完成以下所有項目："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr58.mp3', this)" data-src="audio/expr58.mp3"></button><span class="spoken" data-cn="你應該完成以下所有項目：">You should perform all items below:</span></span></p>
+      <!-- Student B Role Card -->
+      <div class="role-card">
+        <div class="role-card-header">Student B</div>
+        <div class="role-card-name">Ashley Lam</div>
+        <div class="role-card-title">Facilities Officer at Bright Future Education Centre</div>
+        <p style="color:#555; font-size:14px; margin-bottom:12px;" data-cn="你在員工感謝晚宴上。與你的同事 Alex Liu（學生 A，公共關係部職員）進行對話。" data-cn-s="你在员工感谢晚宴上。与你的同事 Alex Liu（学生 A，公共关系部职员）进行对话。">You are at a staff appreciation dinner. Hold a conversation with your colleague, <strong>Alex Liu</strong> (Student A, a Public Relations Officer).</p>
 
-      <h3 data-cn="1. 打招呼並自我介紹"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr59.mp3', this)" data-src="audio/expr59.mp3"></button><span class="spoken" data-cn="1. 打招呼並自我介紹">1. Greet your colleague and introduce yourself</span></span></h3>
+        <div class="role-card-step">
+          <h4 data-cn="步驟 1：問候你的同事並自我介紹" data-cn-s="步骤 1：问候你的同事并自我介绍">Step 1: Greet your colleague and introduce yourself</h4>
+        </div>
 
-      <h3 data-cn="2. 閒聊以下話題"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr60.mp3', this)" data-src="audio/expr60.mp3"></button><span class="spoken" data-cn="2. 閒聊以下話題">2. Make small talk on the following topics</span></span></h3>
-      <ul style="padding-left:20px;">
-        <li data-cn="a. 你的週末活動"><strong>a.</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr61.mp3', this)" data-src="audio/expr61.mp3"></button><span class="spoken" data-cn="a. 你的週末活動">Your weekend activities</span></span></li>
-        <li data-cn="b. 你部門負責的一個項目"><strong>b.</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr62.mp3', this)" data-src="audio/expr62.mp3"></button><span class="spoken" data-cn="b. 你部門負責的一個項目">A project run by your department</span></span></li>
-      </ul>
+        <div class="role-card-step">
+          <h4 data-cn="步驟 2：就以下話題閒聊" data-cn-s="步骤 2：就以下话题闲聊">Step 2: Make small talk on the following topics</h4>
+          <p data-cn="a. 你的週末活動" data-cn-s="a. 你的周末活动"><strong>a.</strong> Your weekend activities</p>
+          <p data-cn="b. 你部門負責的一個項目" data-cn-s="b. 你部门负责的一个项目"><strong>b.</strong> A project run by your department</p>
+          <div class="role-card-project">
+            <p><strong data-cn="項目：翻新教室" data-cn-s="项目：翻新教室">Project: Renovating the classrooms</strong></p>
+            <p data-cn="你可以談論到目前為止已完成的工作，以及未來幾個月的計劃。" data-cn-s="你可以谈论到目前为止已完成的工作，以及未来几个月的计划。">You may talk about what has been done so far, and plans for the coming months.</p>
+          </div>
+        </div>
 
-      <div class="task-box" style="background:#f0f8ff; border-left-color:#4a90d9;">
-        <p><strong data-cn="項目：組織開放日">Project: Organising an Open Day</strong></p>
-        <p data-cn="你可以談論："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr63.mp3', this)" data-src="audio/expr63.mp3"></button><span class="spoken" data-cn="你可以談論：到目前為止已完成的工作，以及未來幾個月的計劃。">You may talk about what has been done so far, and plans for the coming months.</span></span></p>
-      </div>
+        <div class="role-card-step">
+          <h4 data-cn="步驟 3：分享你對一項新公司政策的意見並支持你的觀點" data-cn-s="步骤 3：分享你对一项新公司政策的意见并支持你的观点">Step 3: Share your opinions on a new company policy and support your views with reasons</h4>
+          <div class="role-card-policy">
+            <p><strong data-cn="你的公司剛推出一項新的工作制服政策。" data-cn-s="你的公司刚推出一项新的工作制服政策。">Your company has just introduced a new workplace uniform policy.</strong></p>
+            <p data-cn="所有員工必須穿著公司提供的 Polo 衫搭配正式長褲或裙子。不允許穿牛仔褲和運動鞋。" data-cn-s="所有员工必须穿着公司提供的 Polo 衫搭配正式长裤或裙子。不允许穿牛仔裤和运动鞋。">All staff must wear the company-provided polo shirt with formal trousers or skirts. Jeans and sneakers are not allowed.</p>
+          </div>
+          <p data-cn="你可以談論你對這項政策的看法和感受，以及原因。這項政策可能為公司和員工帶來的潛在好處和缺點。" data-cn-s="你可以谈论你对这项政策的看法和感受，以及原因。这项政策可能为公司和员工带来的潜在好处和缺点。">You may talk about what you think or feel about the policy and why. Also discuss the potential benefits and drawbacks the policy may bring to the company and its employees.</p>
+        </div>
 
-      <h3 data-cn="3. 分享你對一項新公司政策的意見並支持你的觀點"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr64.mp3', this)" data-src="audio/expr64.mp3"></button><span class="spoken" data-cn="3. 分享你對一項新公司政策的意見並支持你的觀點">3. Share your opinions on a new company policy and support your views with reasons</span></span></h3>
-      <div class="task-box" style="background:#fff8f0; border-left-color:#e8a87c;">
-        <p><strong data-cn="公司剛推出一項新的工作制服政策。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr65.mp3', this)" data-src="audio/expr65.mp3"></button><span class="spoken" data-cn="公司剛推出一項新的工作制服政策。所有員工必須穿著公司提供的 Polo 衫搭配正式長褲或裙子。不允許穿牛仔褲和運動鞋。">Your company has just introduced a new workplace uniform policy. All staff must wear the company-provided polo shirt with formal trousers or skirts. Jeans and sneakers are not allowed.</span></span></strong></p>
-      </div>
-      <p data-cn="你可以談論："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr66.mp3', this)" data-src="audio/expr66.mp3"></button><span class="spoken" data-cn="你可以談論：你對這項政策的看法和感受，以及原因。這項政策可能為公司和員工帶來的潛在好處和缺點。">You may talk about what you think or feel about the policy and why. Also discuss the potential benefits and drawbacks the policy may bring to the company and its employees.</span></span></p>
-
-      <h3 data-cn="4. 禮貌地結束對話"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr67.mp3', this)" data-src="audio/expr67.mp3"></button><span class="spoken" data-cn="4. 禮貌地結束對話">4. End the conversation politely</span></span></h3>
-    </div>
-
-    <!-- Student B -->
-    <div class="task-box" style="margin-top:20px;">
-      <h2 data-cn="學生 B 任務">Student B Task</h2>
-      <div class="char-card">
-        <div>
-          <div class="char-caption" data-cn="你是 Ashley Lam">You are <strong>Ashley Lam</strong></div>
-          <p style="color:#555;" data-cn="Bright Future Education Centre 的設施部職員。你正在參加員工感謝晚宴。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr68.mp3', this)" data-src="audio/expr68.mp3"></button><span class="spoken" data-cn="Bright Future Education Centre 的設施部職員。你正在參加員工感謝晚宴。">a Facilities Officer at Bright Future Education Centre. You are at a staff appreciation dinner.</span></span></p>
-          <p style="color:#555;" data-cn="與你的同事 Alex Liu（學生 A，公共關係部職員）進行對話。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr69.mp3', this)" data-src="audio/expr69.mp3"></button><span class="spoken" data-cn="與你的同事 Alex Liu（學生 A，公共關係部職員）進行對話。">Hold a conversation with your colleague, <strong>Alex Liu</strong> (Student A, a Public Relations Officer).</span></span></p>
+        <div class="role-card-step">
+          <h4 data-cn="步驟 4：禮貌地結束對話" data-cn-s="步骤 4：礼貌地结束对话">Step 4: End the conversation politely</h4>
         </div>
       </div>
-
-      <p style="margin:10px 0 6px;" data-cn="你應該完成以下所有項目："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr70.mp3', this)" data-src="audio/expr70.mp3"></button><span class="spoken" data-cn="你應該完成以下所有項目：">You should perform all items below:</span></span></p>
-
-      <h3 data-cn="1. 打招呼並自我介紹"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr71.mp3', this)" data-src="audio/expr71.mp3"></button><span class="spoken" data-cn="1. 打招呼並自我介紹">1. Greet your colleague and introduce yourself</span></span></h3>
-
-      <h3 data-cn="2. 閒聊以下話題"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr72.mp3', this)" data-src="audio/expr72.mp3"></button><span class="spoken" data-cn="2. 閒聊以下話題">2. Make small talk on the following topics</span></span></h3>
-      <ul style="padding-left:20px;">
-        <li data-cn="a. 你的週末活動"><strong>a.</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr73.mp3', this)" data-src="audio/expr73.mp3"></button><span class="spoken" data-cn="a. 你的週末活動">Your weekend activities</span></span></li>
-        <li data-cn="b. 你部門負責的一個項目"><strong>b.</strong> <span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr74.mp3', this)" data-src="audio/expr74.mp3"></button><span class="spoken" data-cn="b. 你部門負責的一個項目">A project run by your department</span></span></li>
-      </ul>
-
-      <div class="task-box" style="background:#f0f8ff; border-left-color:#4a90d9;">
-        <p><strong data-cn="項目：翻新教室">Project: Renovating the classrooms</strong></p>
-        <p data-cn="你可以談論："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr75.mp3', this)" data-src="audio/expr75.mp3"></button><span class="spoken" data-cn="你可以談論：到目前為止已完成的工作，以及未來幾個月的計劃。">You may talk about what has been done so far, and plans for the coming months.</span></span></p>
-      </div>
-
-      <h3 data-cn="3. 分享你對一項新公司政策的意見並支持你的觀點"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr76.mp3', this)" data-src="audio/expr76.mp3"></button><span class="spoken" data-cn="3. 分享你對一項新公司政策的意見並支持你的觀點">3. Share your opinions on a new company policy and support your views with reasons</span></span></h3>
-      <div class="task-box" style="background:#fff8f0; border-left-color:#e8a87c;">
-        <p><strong data-cn="公司剛推出一項新的工作制服政策。"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr77.mp3', this)" data-src="audio/expr77.mp3"></button><span class="spoken" data-cn="公司剛推出一項新的工作制服政策。所有員工必須穿著公司提供的 Polo 衫搭配正式長褲或裙子。不允許穿牛仔褲和運動鞋。">Your company has just introduced a new workplace uniform policy. All staff must wear the company-provided polo shirt with formal trousers or skirts. Jeans and sneakers are not allowed.</span></span></strong></p>
-      </div>
-      <p data-cn="你可以談論："><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr78.mp3', this)" data-src="audio/expr78.mp3"></button><span class="spoken" data-cn="你可以談論：你對這項政策的看法和感受，以及原因。這項政策可能為公司和員工帶來的潛在好處和缺點。">You may talk about what you think or feel about the policy and why. Also discuss the potential benefits and drawbacks the policy may bring to the company and its employees.</span></span></p>
-
-      <h3 data-cn="4. 禮貌地結束對話"><span class="utterance"><button class="btn-icon" onclick="playAudio('audio/expr79.mp3', this)" data-src="audio/expr79.mp3"></button><span class="spoken" data-cn="4. 禮貌地結束對話">4. End the conversation politely</span></span></h3>
     </div>
   </div>
 
@@ -1284,9 +1619,40 @@ function switchTab(index) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Chinese translation toggle
-function toggleAllCN(show) {
-  document.querySelector('.container').classList.toggle('cn-active', show);
+// Chinese translation toggle — 3 states: off, Traditional, Simplified
+let langMode = 'off'; // 'off' | 'trad' | 'simp'
+
+function cycleLang() {
+  const btn = document.getElementById('langToggle');
+  if (langMode === 'off') {
+    langMode = 'trad';
+    btn.textContent = '繁體中文';
+    btn.className = 'cn-toggle-btn active-trad';
+  } else if (langMode === 'trad') {
+    langMode = 'simp';
+    btn.textContent = '简体中文';
+    btn.className = 'cn-toggle-btn active-simp';
+  } else {
+    langMode = 'off';
+    btn.textContent = '中文翻译';
+    btn.className = 'cn-toggle-btn';
+  }
+  document.querySelector('.container').classList.toggle('cn-active', langMode !== 'off');
+  updateTranslations();
+}
+
+function updateTranslations() {
+  document.querySelectorAll('.cn-translation').forEach(el => {
+    const parent = el.previousElementSibling;
+    if (!parent) return;
+    const trad = parent.getAttribute('data-cn');
+    const simp = parent.getAttribute('data-cn-s');
+    if (langMode === 'simp' && simp) {
+      el.textContent = simp;
+    } else if (trad) {
+      el.textContent = trad;
+    }
+  });
 }
 
 function initTranslations() {
@@ -1501,42 +1867,7 @@ document.addEventListener('DOMContentLoaded', function() {
   else synth.addEventListener('voiceschanged', initWordClick, { once: true });
 });
 
-// ── Part 5 export: Print / Save as PDF & Download as Word ──
-function printTab() {
-  stopAll();
-  const tab = document.getElementById('tab-5');
-  document.body.classList.add('printing');
-  tab.classList.add('printing');
-  const win = window.open('', '_blank', 'width=1000,height=800');
-  if (win) {
-    win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>CA Script Template</title>');
-    win.document.write('<style>body{font-family:"Segoe UI",Tahoma,sans-serif;color:#333;padding:24px;}');
-    win.document.write('table{width:100%;border-collapse:collapse;} th,td{border:1px solid #999;padding:10px 12px;vertical-align:top;text-align:left;} th{background:#eee;}');
-    win.document.write('.script-speaker{font-weight:700;margin-right:6px;}');
-    win.document.write('.fill{display:inline-block;min-width:60px;border-bottom:1px dashed #888;padding:0 4px;}');
-    win.document.write('.blank{display:inline-block;min-width:80px;border-bottom:1px solid #000;padding:0 4px;}');
-    win.document.write('.export-bar{display:none;} .script-table td:empty{background:#fafafa;}');
-    win.document.write('</style></head><body>');
-    win.document.write('<h2>25% Paired Assignment Draft</h2>');
-    const header = tab.querySelector('.task-box');
-    if (header) win.document.write(header.outerHTML);
-    win.document.write('<table>');
-    const ths = tab.querySelectorAll('.script-table thead th');
-    win.document.write('<tr><th>' + ths[0].innerText + '</th><th>' + ths[1].innerText + '</th></tr>');
-    tab.querySelectorAll('.script-table tbody tr').forEach(tr => {
-      const tds = tr.querySelectorAll('td');
-      const a = tds[0] ? tds[0].innerText.replace(/^\s*A\s+/, 'A: ') : '';
-      const b = tds[1] ? tds[1].innerText.replace(/^\s*B\s+/, 'B: ') : '';
-      win.document.write('<tr><td>' + a + '</td><td>' + b + '</td></tr>');
-    });
-    win.document.write('</table>');
-    win.document.write('</body></html>');
-    win.document.close();
-    win.focus();
-    setTimeout(function() { win.print(); }, 400);
-  }
-}
-
+// ── Part 5 export: Download as Word ──
 function downloadWord() {
   stopAll();
   const tab = document.getElementById('tab-5');
@@ -1561,43 +1892,6 @@ function downloadWord() {
   document.body.appendChild(a);
   a.click();
   setTimeout(function() { URL.revokeObjectURL(url); a.remove(); }, 1000);
-}
-
-function printAssignment() {
-  stopAll();
-  const tab = document.getElementById('tab-7');
-  const win = window.open('', '_blank', 'width=1000,height=800');
-  if (win) {
-    win.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>LAN3107 Assignment Task</title>');
-    win.document.write('<style>body{font-family:"Segoe UI",Tahoma,sans-serif;color:#333;padding:24px;line-height:1.6;}');
-    win.document.write('h1{font-size:20px;color:#4b0082;margin-bottom:4px;}');
-    win.document.write('h2{font-size:17px;color:#6a0dad;margin:18px 0 8px;}');
-    win.document.write('h3{font-size:15px;color:#8a2be2;margin:14px 0 6px;}');
-    win.document.write('.task-box{background:#f8f0ff;border-left:4px solid #9370db;padding:14px 18px;margin:12px 0;border-radius:0 8px 8px 0;}');
-    win.document.write('.task-box p,.task-box li{margin-bottom:4px;}');
-    win.document.write('ul{padding-left:20px;}');
-    win.document.write('.info-box{background:#f0f8ff;border-left:4px solid #4a90d9;padding:12px 16px;margin:10px 0;border-radius:0 8px 8px 0;}');
-    win.document.write('.warn-box{background:#fff8f0;border-left:4px solid #e8a87c;padding:12px 16px;margin:10px 0;border-radius:0 8px 8px 0;}');
-    win.document.write('.cn{color:#8b5a2b;font-size:13px;margin-top:2px;}');
-    win.document.write('.export-bar{display:none;}');
-    win.document.write('.part-badge{display:inline-block;background:#4b0082;color:white;font-size:11px;font-weight:700;padding:2px 10px;border-radius:100px;margin-bottom:6px;}');
-    win.document.write('</style></head><body>');
-
-    const badge = tab.querySelector('.part-badge');
-    const title = tab.querySelector('h1');
-    if (badge) win.document.write('<div class="part-badge">' + badge.innerText + '</div>');
-    if (title) win.document.write('<h1>' + title.innerText + '</h1>');
-
-    const taskBoxes = tab.querySelectorAll('.task-box');
-    taskBoxes.forEach(box => {
-      win.document.write('<div class="task-box">' + box.innerHTML + '</div>');
-    });
-
-    win.document.write('</body></html>');
-    win.document.close();
-    win.focus();
-    setTimeout(function() { win.print(); }, 400);
-  }
 }
 </script>
 
