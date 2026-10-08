@@ -1660,7 +1660,7 @@ table.reminder-table td { overflow-wrap: anywhere; }
         </tr>
         <tr>
           <td><div class="reminder-item">
-            <span class="reminder-title" data-cn="在六分鐘對話開始前，先讀出身份確認訊息。">Read the identification message before your 6-minute conversation.</span>
+            <span class="reminder-title" data-cn="在六分鐘對話開始前，先讀出身份確認訊息。" style="font-style: italic; color: navy;">Before your 6-minute conversation, read the identificat message: My name is ___. My student number is _____. I'm from Class____ of DILWL campus. I'm Role A/B.</span>
           </div></td>
         </tr>
         <tr>
@@ -2040,18 +2040,38 @@ document.addEventListener('DOMContentLoaded', function() {
 // ── Part 5 export: Download as Word ──
 function downloadWord() {
   stopAll();
-  const tab = document.getElementById('tab-5');
+  const tab = document.getElementById('tab-5').cloneNode(true);
+  tab.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+  tab.querySelectorAll('[data-hint]').forEach(el => el.removeAttribute('data-hint'));
+  tab.querySelectorAll('.blank[data-ph]').forEach(el => { if (!el.textContent.trim()) el.textContent = el.getAttribute('data-ph'); el.removeAttribute('data-ph'); });
+  const cellHtml = td => {
+    if (!td) return '';
+    return td.innerHTML.trim()
+      .replace(/^\s*<div class="script-line">\s*/, '')
+      .replace(/<\/div>\s*$/, '')
+      .replace(/^\s*<span[^>]*class="script-speaker"[^>]*>\s*([^<]*?)\s*<\/span>\s*/, '$1: ');
+  };
   let html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><title>CA Script Template</title>';
   html += '<style>body{font-family:"Calibri","Segoe UI",sans-serif;font-size:12pt;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #999;padding:8px 10px;vertical-align:top;} th{background:#eee;}';
-  html += '.script-speaker{font-weight:bold;} .fill{color:#888;border-bottom:1px dashed #999;} .blank{color:#000;}</style></head><body>';
+  html += 'h1{font-size:16pt;color:#4b0080;margin-bottom:6px;} .script-speaker{font-weight:bold;}';
+  html += '.fill,.blank{color:#7b3fa0;font-style:italic;background-color:#efe4fa;border-bottom:1px dashed #b389e0;}';
+  html += 'tr.section-label td{background:#efe4fa;font-weight:bold;}</style></head><body>';
+  const title = tab.querySelector('h1');
+  if (title) html += '<h1>' + title.textContent.trim() + '</h1>';
+  html += '<p style="background-color:#efe4fa;color:#7b3fa0;padding:6px 8px;"><strong>How to use:</strong> <span class="fill">lavender italic text</span> is a placeholder — click it and type your own words to replace it.</p>';
+  const info = Array.from(tab.querySelectorAll('p')).find(p => p.querySelector('.blank'));
+  if (info) html += '<p>' + info.innerHTML + '</p>';
   const header = tab.querySelector('.task-box');
   if (header) html += header.innerHTML;
-  html += '<table><thead><tr><th>' + tab.querySelectorAll('.script-table thead th')[0].innerText + '</th><th>' + tab.querySelectorAll('.script-table thead th')[1].innerText + '</th></tr></thead><tbody>';
+  const ths = tab.querySelectorAll('.script-table thead th');
+  html += '<table><thead><tr><th>' + (ths[0] ? ths[0].innerHTML : '') + '</th><th>' + (ths[1] ? ths[1].innerHTML : '') + '</th></tr></thead><tbody>';
   tab.querySelectorAll('.script-table tbody tr').forEach(tr => {
     const tds = tr.querySelectorAll('td');
-    const a = tds[0] ? tds[0].innerText.replace(/^\s*A\s+/, 'A: ') : '';
-    const b = tds[1] ? tds[1].innerText.replace(/^\s*B\s+/, 'B: ') : '';
-    html += '<tr><td>' + a + '</td><td>' + b + '</td></tr>';
+    if (tr.classList.contains('section-label')) {
+      html += '<tr><td colspan="2">' + cellHtml(tds[0]) + '</td></tr>';
+      return;
+    }
+    html += '<tr><td>' + cellHtml(tds[0]) + '</td><td>' + cellHtml(tds[1]) + '</td></tr>';
   });
   html += '</tbody></table></body></html>';
   const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
